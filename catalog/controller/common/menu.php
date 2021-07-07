@@ -41,6 +41,11 @@ class ControllerCommonMenu extends Controller {
 			}
 		}
 
+        /*  ++ код Spe ++   */
+        $data['spe_category'] = $this->load->controller('extension/module/category');
+
+        /*  -- код Spe --   */
+
 		return $this->load->view('common/menu', $data);
 	}
 }
