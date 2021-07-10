@@ -74,7 +74,7 @@
 <header>
     <div class="container-fluid">
         <div class="header-block row">
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div id="logo" class="header-logo">
                     {% if logo %}
                         <a href="{{ home }}" class="header-logo__img">
@@ -88,8 +88,8 @@
             <div class="col-sm-6">
                 {{ menu }}
             </div>
-            <div class="col-sm-2">{{ search }}</div>
-            <div class="col-sm-1">
+            <div class="col-sm-3">
+                {{ search }}
                 <div class="header-account">
                     {% if logged %}
 
@@ -111,8 +111,8 @@
                         </a>
                     {% endif %}
                 </div>
+                {{ cart }}
             </div>
-            <div class="col-sm-1">{{ cart }}</div>
         </div>
     </div>
 </header>
