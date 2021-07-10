@@ -4,6 +4,71 @@
     padding: 10px 0px;
 }
 
-#cart>button>i {
-    font-size: 2em;
+/*Настройка верхнего блока Header*/
+.header-block {
+    background: #222222;
+    padding: 20px 0px;
+}
+
+/*Настройка верхнего логотипа*/
+.header-logo {
+    margin: 0px;
+}
+
+/*Настройка аккаунта в верхнем меню*/
+.header-account__btn {
+    position: relative;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.header-account__icon {
+    font-size: 2.4em;
+    color: white;
+}
+.header-account__indicate {
+    color: white;
+    background: #0b91d2;
+    position: absolute;
+    right: -15px;
+    bottom: -6px;
+    border-radius: 100%;
+    border: solid 1px rgba(255, 255, 255, 1);
+    margin: 0;
+    padding: 0 3px;
+    min-width: 17px;
+    height: 17px;
+    line-height: 16px;
+    text-align: center;
+    font-size: .8em;
+    font-weight: 400;
+}
+
+/*Настройки корзины в верхнем меню*/
+.header-cart__btn {
+    position: relative;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.header-cart__icon {
+    font-size: 2.4em;
+    color: white;
+}
+.header-cart__total-items {
+    color: white;
+    background: #0b91d2;
+    position: absolute;
+    right: -15px;
+    bottom: -6px;
+    border-radius: 100%;
+    border: solid 1px rgba(255, 255, 255, 1);
+    margin: 0;
+    padding: 0 3px;
+    min-width: 17px;
+    height: 17px;
+    line-height: 16px;
+    text-align: center;
+    font-size: .8em;
+    font-weight: 400;
 }

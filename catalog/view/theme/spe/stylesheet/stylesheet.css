@@ -124,10 +124,7 @@ div.required .control-label:before {
 #top-links a + a {
 	margin-left: 15px;
 }
-/* logo */
-#logo {
-	margin: 0 0 10px 0;
-}
+
 /* search */
 #search {
 	margin-bottom: 10px;

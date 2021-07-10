@@ -1,15 +1,13 @@
-<div id="cart" class="btn-group btn-block">
-  {#
-  <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-    <i class="fa fa-shopping-cart"></i>
-    <span id="cart-total">{{ spe_count_items }}</span>
-  </button>
-  #}
+<div id="cart" class="header-cart">
 
-  <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-block btn-lg dropdown-toggle">
-    <i class="fa fa-shopping-cart"></i>
-    <span id="cart-total">{{ spe_count_items }}</span>
+  <button data-toggle="dropdown" class="header-cart__btn dropdown-toggle">
+    <i class="header-cart__icon fa fa-shopping-cart"></i>
+    <span id="cart-total" class="header-cart__total-items">{{ spe_count_items }}</span>
   </button>
+
+  <div class="header-cart__dropdown dropdown-menu pull-right">
+
+  </div>
 
   <ul class="dropdown-menu pull-right">
     {% if products or vouchers %}
