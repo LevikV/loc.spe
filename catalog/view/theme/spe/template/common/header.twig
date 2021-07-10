@@ -90,11 +90,11 @@
             </div>
             <div class="col-sm-2">{{ search }}</div>
             <div class="col-sm-1">
-                {% if logged %}
+                <div class="header-account">
+                    {% if logged %}
 
-                    <div class="header-account">
                         <button id="header-account" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="header-account__btn">
-                            <i class="header-account__icon fa fa-shopping-cart"></i>
+                            <i class="header-account__icon fa fa-user"></i>
                             <span class="header-account__indicate header-account__indicate_on"> </span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="header-account">
@@ -104,12 +104,13 @@
                             <li><a href="{{ download }}">{{ text_download }}</a></li>
                             <li><a href="{{ logout }}">{{ text_logout }}</a></li>
                         </ul>
-                    </div>
 
-                {% else %}
-                    <li><a href="{{ register }}">{{ text_register }}</a></li>
-                    <li><a href="{{ login }}">{{ text_login }}</a></li>
-                {% endif %}
+                    {% else %}
+                        <a href="{{ login }}" class="header-account__btn">
+                            <i class="header-account__icon fa fa-user"></i>
+                        </a>
+                    {% endif %}
+                </div>
             </div>
             <div class="col-sm-1">{{ cart }}</div>
         </div>

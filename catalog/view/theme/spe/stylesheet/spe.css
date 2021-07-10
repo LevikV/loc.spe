@@ -23,17 +23,17 @@
     background: none;
 }
 .header-account__icon {
-    font-size: 2.4em;
+    font-size: 3em;
     color: white;
 }
 .header-account__indicate {
     color: white;
-    background: #0b91d2;
+    background: #eee;
     position: absolute;
     right: -15px;
     bottom: -6px;
     border-radius: 100%;
-    border: solid 1px rgba(255, 255, 255, 1);
+    border: solid 1px #eee;
     margin: 0;
     padding: 0 3px;
     min-width: 17px;
@@ -43,7 +43,10 @@
     font-size: .8em;
     font-weight: 400;
 }
-
+.header-account__indicate_on {
+    background: green;
+    border: solid 1px green;
+}
 /*Настройки корзины в верхнем меню*/
 .header-cart__btn {
     position: relative;
@@ -52,7 +55,7 @@
     background: none;
 }
 .header-cart__icon {
-    font-size: 2.4em;
+    font-size: 3em;
     color: white;
 }
 .header-cart__total-items {

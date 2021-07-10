@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* default font size */
 .fa {
-	font-size: 14px;
+	font-size: 2em;
 }
 /* Override the bootstrap defaults */
 h1 {
@@ -137,7 +137,7 @@ div.required .control-label:before {
 #search .btn-lg {
 	font-size: 15px;
 	line-height: 18px;
-	padding: 10px 35px;
+	padding: 4px 20px;
 	text-shadow: 0 1px 0 #FFF;
 }
 /* cart */
