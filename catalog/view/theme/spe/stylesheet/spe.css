@@ -15,7 +15,19 @@
     margin: 0px;
 }
 
+/*Настройка блока поиска*/
+.header-search {
+    width: 180px;
+    float: right;
+}
+
 /*Настройка аккаунта в верхнем меню*/
+.header-account {
+    float: right;
+    padding-left: 40px;
+    padding-right: 30px;
+    position: relative;
+}
 .header-account__btn {
     position: relative;
     padding: 0;
@@ -45,9 +57,18 @@
 }
 .header-account__indicate_on {
     background: green;
-    border: solid 1px green;
+    border: solid 1px white;
 }
+.header-account__dropdown-menu {
+    left: -90px;
+    top: 55px;
+}
+
 /*Настройки корзины в верхнем меню*/
+.header-cart {
+    float: right;
+    padding-right: 30px;
+}
 .header-cart__btn {
     position: relative;
     padding: 0;
@@ -74,4 +95,100 @@
     text-align: center;
     font-size: .8em;
     font-weight: 400;
+}
+
+/*Настройка верхнего меню*/
+.top-menu {
+    background: #222;
+    position: relative;
+    margin-bottom: 0px;
+}
+.top-menu:after,
+.submenu:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.top-menu > li {
+    display: inline-block;
+    float: left;
+}
+.top-menu > li > a {
+    display: block;
+    padding: 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    transition: .2s linear;
+}
+.top-menu > li > a:hover {color: #B03062;}
+.dropdown:after {
+    content: "\f107";
+    font-family: FontAwesome;
+    margin-left: 4px;
+    vertical-align: top;
+}
+.submenu,
+.submenu-standart {
+    border-top: 1px solid #e5e5e5;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.07);
+    background: white;
+    padding: 25px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0,30px,0);
+    transition: .5s ease-out;
+    transform-origin: 0% 0%;
+}
+.submenu {width: 100%;}
+.submenu-standart {
+    min-width: 200px;
+    padding: 10px 0;
+}
+.dropdown-standart {position: relative;}
+.top-menu > li:hover .submenu,
+.top-menu > li:hover .submenu-standart {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0,0,0);
+}
+.submenu > li {
+    float: left;
+    width: calc(100% / 3);
+    padding: 0 18px;
+    border-right: 1px solid #e5e5e5;
+}
+.submenu-standart li {padding: 0 18px;}
+.submenu > li:last-child {border-right: none;}
+.submenu img {
+    display: block;
+    width: 100%;
+}
+.submenu li a,
+.submenu-standart li a {
+    display: block;
+    padding: 5px 0;
+    color: #666;
+    font-size: 13px;
+}
+.submenu li .link-image {padding: 0;}
+.submenu li a:hover {color: #B03062;}
+.submenu h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.content {
+    margin: 20px auto;
+    padding: 0 20px;
 }
