@@ -42,7 +42,8 @@ class ControllerCommonMenu extends Controller {
 		}
 
         /*  ++ код Spe ++   */
-        $data['spe_category'] = $this->load->controller('extension/module/category');
+
+        $data['tree_cats'] = $this->load->controller('extension/module/tree_cats/getTreeCats');
 
         /*  -- код Spe --   */
 

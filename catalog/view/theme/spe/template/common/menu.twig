@@ -1,19 +1,37 @@
 {% if categories %}
     <div class="row">
-
         <nav>
             <ul class="top-menu">
                 <li><a href="">Главная</a></li>
-                <li class="dropdown-standart"><a href="" class="dropdown">Страницы</a>
-                    <ul class="submenu-standart">
-                        <li><a href="">Элемент списка</a></li>
-                        <li><a href="">Элемент списка</a></li>
-                        <li><a href="">Элемент списка</a></li>
-                        <li><a href="">Элемент списка</a></li>
-                        <li><a href="">Элемент списка</a></li>
-                        <li><a href="">Элемент списка</a></li>
-                    </ul>
-                </li>
+
+                {% for category in tree_cats %}
+
+                    {% if category.top == '1' %}
+                        {% if not category.childs is null %}
+                            <li>
+                                <a href="{{ category.href }}" class="dropdown">{{ category.name }}</a>
+                                <ul class="submenu">
+                                    {% for category_child in category.childs %}
+                                        <li>
+                                            <h3><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
+                                            {% if not category_child.childs is null %}
+                                                <ul>
+                                                    {% for category_child_child in category_child.childs %}
+                                                        <li><a href="{{ category_child_child.href }}">{{ category_child_child.name }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+                        {% endif %}
+                    {% endif %}
+
+                {% endfor %}
+
                 <li><a href="" class="dropdown">Магазин</a>
                     <ul class="submenu">
                         <li><h3>Колонка 1</h3>
@@ -50,8 +68,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="">Портфолио</a></li>
-                <li><a href="">Блог</a></li>
+
             </ul>
         </nav>
 

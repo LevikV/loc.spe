@@ -178,7 +178,7 @@
 }
 .submenu li .link-image {padding: 0;}
 .submenu li a:hover {color: #B03062;}
-.submenu h3 {
+.submenu h3>a {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     font-weight: 400;
