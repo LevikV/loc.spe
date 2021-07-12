@@ -1,4 +1,9 @@
 {{ header }}
+<div class="container-fluid">
+  <div class="row">
+    {{ content_top }}
+  </div>
+</div>
 <div id="common-home" class="container">
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
@@ -8,7 +13,7 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    <div id="content" class="{{ class }}">{{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
 {{ footer }}

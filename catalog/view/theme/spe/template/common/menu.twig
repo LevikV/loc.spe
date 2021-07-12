@@ -5,7 +5,6 @@
                 <li><a href="">Главная</a></li>
 
                 {% for category in tree_cats %}
-
                     {% if category.top == '1' %}
                         {% if not category.childs is null %}
                             <li>
@@ -16,8 +15,13 @@
                                             <h3><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
                                             {% if not category_child.childs is null %}
                                                 <ul>
-                                                    {% for category_child_child in category_child.childs %}
+                                                    {% set childs_count = 0 %}
+                                                    {% for category_child_child in category_child.childs if childs_count < 3 %}
                                                         <li><a href="{{ category_child_child.href }}">{{ category_child_child.name }}</a></li>
+                                                        {% set childs_count = childs_count + 1 %}
+                                                        {% if childs_count >= 3 %}
+                                                            <li><a href="{{ category_child.href }}">Все категории >></a></li>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </ul>
                                             {% endif %}
@@ -29,7 +33,6 @@
                             <li><a href="{{ category.href }}">{{ category.name }}</a></li>
                         {% endif %}
                     {% endif %}
-
                 {% endfor %}
 
                 <li><a href="" class="dropdown">Магазин</a>
@@ -64,6 +67,26 @@
                                     </a>
                                 </li>
                                 <li><h3 class="image-header">Заголовок</h3></li>
+                            </ul>
+                        </li>
+                        <li><h3>Колонка 4</h3>
+                            <ul>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                            </ul>
+                        </li>
+                        <li><h3>Колонка 5</h3>
+                            <ul>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
+                                <li><a href="">Элемент списка</a></li>
                             </ul>
                         </li>
                     </ul>
