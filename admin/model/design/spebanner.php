@@ -8,7 +8,19 @@ class ModelDesignSpebanner extends Model {
 		if (isset($data['banner_image'])) {
 			foreach ($data['banner_image'] as $language_id => $value) {
 				foreach ($value as $banner_image) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', language_id = '" . (int)$language_id . "', title = '" .  $this->db->escape($banner_image['title']) . "', link = '" .  $this->db->escape($banner_image['link']) . "', image = '" .  $this->db->escape($banner_image['image']) . "', sort_order = '" .  (int)$banner_image['sort_order'] . "'");
+					$this->db->query(
+					    "INSERT INTO " . DB_PREFIX . "spebanner_image 
+					    SET 
+					    banner_id = '" . (int)$banner_id . "', 
+					    language_id = '" . (int)$language_id . "', 
+					    title = '" .  $this->db->escape($banner_image['title']) . "', 
+					    title2 = '" .  $this->db->escape($banner_image['title2']) . "', 
+					    title3 = '" .  $this->db->escape($banner_image['title3']) . "', 
+					    title4 = '" .  $this->db->escape($banner_image['title4']) . "', 
+					    title5 = '" .  $this->db->escape($banner_image['title5']) . "', 
+					    link = '" .  $this->db->escape($banner_image['link']) . "', 
+					    image = '" .  $this->db->escape($banner_image['image']) . "', 
+					    sort_order = '" .  (int)$banner_image['sort_order'] . "'");
 				}
 			}
 		}
@@ -17,14 +29,24 @@ class ModelDesignSpebanner extends Model {
 	}
 
 	public function editBanner($banner_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "spebanner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
 
-		$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "spebanner_image WHERE banner_id = '" . (int)$banner_id . "'");
 
 		if (isset($data['banner_image'])) {
 			foreach ($data['banner_image'] as $language_id => $value) {
 				foreach ($value as $banner_image) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', language_id = '" . (int)$language_id . "', title = '" .  $this->db->escape($banner_image['title']) . "', link = '" .  $this->db->escape($banner_image['link']) . "', image = '" .  $this->db->escape($banner_image['image']) . "', sort_order = '" . (int)$banner_image['sort_order'] . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "spebanner_image SET 
+					banner_id = '" . (int)$banner_id . "', 
+					language_id = '" . (int)$language_id . "', 
+					title = '" .  $this->db->escape($banner_image['title']) . "', 
+					title2 = '" .  $this->db->escape($banner_image['title2']) . "', 
+					title3 = '" .  $this->db->escape($banner_image['title3']) . "', 
+					title4 = '" .  $this->db->escape($banner_image['title4']) . "', 
+					title5 = '" .  $this->db->escape($banner_image['title5']) . "', 
+					link = '" .  $this->db->escape($banner_image['link']) . "', 
+					image = '" .  $this->db->escape($banner_image['image']) . "', 
+					sort_order = '" . (int)$banner_image['sort_order'] . "'");
 				}
 			}
 		}
@@ -36,7 +58,7 @@ class ModelDesignSpebanner extends Model {
 	}
 
 	public function getBanner($banner_id) {
-		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "banner WHERE banner_id = '" . (int)$banner_id . "'");
+		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "spebanner WHERE banner_id = '" . (int)$banner_id . "'");
 
 		return $query->row;
 	}
@@ -81,11 +103,15 @@ class ModelDesignSpebanner extends Model {
 	public function getBannerImages($banner_id) {
 		$banner_image_data = array();
 
-		$banner_image_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "' ORDER BY sort_order ASC");
+		$banner_image_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "spebanner_image WHERE banner_id = '" . (int)$banner_id . "' ORDER BY sort_order ASC");
 
 		foreach ($banner_image_query->rows as $banner_image) {
 			$banner_image_data[$banner_image['language_id']][] = array(
 				'title'      => $banner_image['title'],
+                'title2'      => $banner_image['title2'],
+                'title3'      => $banner_image['title3'],
+                'title4'      => $banner_image['title4'],
+                'title5'      => $banner_image['title5'],
 				'link'       => $banner_image['link'],
 				'image'      => $banner_image['image'],
 				'sort_order' => $banner_image['sort_order']
@@ -124,7 +150,11 @@ class ModelDesignSpebanner extends Model {
 				`banner_image_id` INT(11) NOT NULL AUTO_INCREMENT,
 				`banner_id` INT(11) NOT NULL,
 				`language_id` INT(11) NOT NULL,
-				`title` varchar(64) NOT NULL,
+				`title` varchar(64),
+				`title2` varchar(64),
+				`title3` varchar(64),
+				`title4` varchar(64),
+				`title5` varchar(64),
 				`link` varchar(255) NOT NULL,
 				`image` varchar(255) NOT NULL,
 				`sort_order` INT(3) NOT NULL default 0,

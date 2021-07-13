@@ -53,14 +53,14 @@ class ControllerDesignSpebanner extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('design/banner');
+		$this->load->language('design/spebanner');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('design/banner');
+		$this->load->model('design/spebanner');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_design_banner->editBanner($this->request->get['banner_id'], $this->request->post);
+			$this->model_design_spebanner->editBanner($this->request->get['banner_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -78,7 +78,7 @@ class ControllerDesignSpebanner extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'] . $url, true));
+			$this->response->redirect($this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -309,7 +309,7 @@ class ControllerDesignSpebanner extends Controller {
 		$data['cancel'] = $this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		if (isset($this->request->get['banner_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$banner_info = $this->model_design_banner->getBanner($this->request->get['banner_id']);
+			$banner_info = $this->model_design_spebanner->getBanner($this->request->get['banner_id']);
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];
@@ -358,6 +358,10 @@ class ControllerDesignSpebanner extends Controller {
 				
 				$data['banner_images'][$key][] = array(
 					'title'      => $banner_image['title'],
+                    'title2'     => $banner_image['title2'],
+                    'title3'     => $banner_image['title3'],
+                    'title4'     => $banner_image['title4'],
+                    'title5'     => $banner_image['title5'],
 					'link'       => $banner_image['link'],
 					'image'      => $image,
 					'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
