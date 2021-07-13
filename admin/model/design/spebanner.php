@@ -1,7 +1,7 @@
 <?php
 class ModelDesignSpebanner extends Model {
 	public function addBanner($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "spebanner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "'");
 
 		$banner_id = $this->db->getLastId();
 
@@ -42,7 +42,7 @@ class ModelDesignSpebanner extends Model {
 	}
 
 	public function getBanners($data = array()) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "banner";
+		$sql = "SELECT * FROM " . DB_PREFIX . "spebanner";
 
 		$sort_data = array(
 			'name',
@@ -96,7 +96,7 @@ class ModelDesignSpebanner extends Model {
 	}
 
 	public function getTotalBanners() {
-		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "banner");
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "spebanner");
 
 		return $query->row['total'];
 	}
@@ -116,6 +116,19 @@ class ModelDesignSpebanner extends Model {
 				`name` varchar(255) NOT NULL,
 				`status` INT(1) NOT NULL,
 				PRIMARY KEY (`banner_id`)
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+		");
+
+        $this->db->query("
+			CREATE TABLE `" . DB_PREFIX . "spebanner_image` (
+				`banner_image_id` INT(11) NOT NULL AUTO_INCREMENT,
+				`banner_id` INT(11) NOT NULL,
+				`language_id` INT(11) NOT NULL,
+				`title` varchar(64) NOT NULL,
+				`link` varchar(255) NOT NULL,
+				`image` varchar(255) NOT NULL,
+				`sort_order` INT(3) NOT NULL default 0,
+				PRIMARY KEY (`banner_image_id`)
 			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 		");
 

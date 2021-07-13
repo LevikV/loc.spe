@@ -21,14 +21,14 @@ class ControllerDesignSpebanner extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('design/banner');
+		$this->load->language('design/spebanner');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('design/banner');
+		$this->load->model('design/spebanner');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_design_banner->addBanner($this->request->post);
+			$this->model_design_spebanner->addBanner($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -46,7 +46,7 @@ class ControllerDesignSpebanner extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'] . $url, true));
+			$this->response->redirect($this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -297,16 +297,16 @@ class ControllerDesignSpebanner extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'] . $url, true)
+			'href' => $this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['banner_id'])) {
-			$data['action'] = $this->url->link('design/banner/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
+			$data['action'] = $this->url->link('design/spebanner/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('design/banner/edit', 'user_token=' . $this->session->data['user_token'] . '&banner_id=' . $this->request->get['banner_id'] . $url, true);
+			$data['action'] = $this->url->link('design/spebanner/edit', 'user_token=' . $this->session->data['user_token'] . '&banner_id=' . $this->request->get['banner_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('design/banner', 'user_token=' . $this->session->data['user_token'] . $url, true);
+		$data['cancel'] = $this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		if (isset($this->request->get['banner_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$banner_info = $this->model_design_banner->getBanner($this->request->get['banner_id']);
@@ -339,7 +339,7 @@ class ControllerDesignSpebanner extends Controller {
 		if (isset($this->request->post['banner_image'])) {
 			$banner_images = $this->request->post['banner_image'];
 		} elseif (isset($this->request->get['banner_id'])) {
-			$banner_images = $this->model_design_banner->getBannerImages($this->request->get['banner_id']);
+			$banner_images = $this->model_design_spebanner->getBannerImages($this->request->get['banner_id']);
 		} else {
 			$banner_images = array();
 		}
@@ -372,7 +372,7 @@ class ControllerDesignSpebanner extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('design/banner_form', $data));
+		$this->response->setOutput($this->load->view('design/spebanner_form', $data));
 	}
 
 	protected function validateForm() {
@@ -404,8 +404,6 @@ class ControllerDesignSpebanner extends Controller {
 
 		return !$this->error;
 	}
-
-
 
     //Функция создания таблицы Spebanner
     protected function addSpeTable() {
