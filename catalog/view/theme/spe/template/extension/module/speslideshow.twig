@@ -1,7 +1,15 @@
 <div class="swiper-viewport">
-  <div id="slideshow{{ module }}" class="swiper-container">
+  <div id="speslideshow{{ module }}" class="swiper-container">
     <div class="swiper-wrapper"> {% for banner in banners %}
       <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
+
+        <div>
+          {{ banner.title2 }}
+          {{ banner.title3 }}
+          {{ banner.title4 }}
+          {{ banner.title5 }}
+        </div>
+
       {% endfor %} </div>
   </div>
   <div class="swiper-pagination slideshow{{ module }}"></div>
@@ -10,8 +18,9 @@
     <div class="swiper-button-prev"></div>
   </div>
 </div>
+
 <script type="text/javascript"><!--
-$('#slideshow{{ module }}').swiper({
+$('#speslideshow{{ module }}').swiper({
 	mode: 'horizontal',
 	slidesPerView: 1,
 	pagination: '.slideshow{{ module }}',

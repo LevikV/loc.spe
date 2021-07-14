@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']    = 'Слайдшоу';
+$_['heading_title']    = 'Spe Слайдшоу';
 
 // Text
 $_['text_module']      = 'Модули';

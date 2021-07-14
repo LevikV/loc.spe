@@ -1,9 +1,9 @@
 <?php
-class ControllerExtensionModuleSlideshow extends Controller {
+class ControllerExtensionModuleSpeslideshow extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/module/slideshow');
+		$this->load->language('extension/module/speslideshow');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -11,7 +11,7 @@ class ControllerExtensionModuleSlideshow extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			if (!isset($this->request->get['module_id'])) {
-				$this->model_setting_module->addModule('slideshow', $this->request->post);
+				$this->model_setting_module->addModule('speslideshow', $this->request->post);
 			} else {
 				$this->model_setting_module->editModule($this->request->get['module_id'], $this->request->post);
 			}
@@ -60,19 +60,19 @@ class ControllerExtensionModuleSlideshow extends Controller {
 		if (!isset($this->request->get['module_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'], true)
+				'href' => $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'], true)
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
+				'href' => $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
 			);
 		}
 
 		if (!isset($this->request->get['module_id'])) {
-			$data['action'] = $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'], true);
+			$data['action'] = $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'], true);
 		} else {
-			$data['action'] = $this->url->link('extension/module/slideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
+			$data['action'] = $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
 		}
 
 		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
@@ -97,9 +97,9 @@ class ControllerExtensionModuleSlideshow extends Controller {
 			$data['banner_id'] = '';
 		}
 
-		$this->load->model('design/banner');
+		$this->load->model('design/spebanner');
 
-		$data['banners'] = $this->model_design_banner->getBanners();
+		$data['banners'] = $this->model_design_spebanner->getBanners();
 
 		if (isset($this->request->post['width'])) {
 			$data['width'] = $this->request->post['width'];
@@ -129,11 +129,11 @@ class ControllerExtensionModuleSlideshow extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('extension/module/slideshow', $data));
+		$this->response->setOutput($this->load->view('extension/module/speslideshow', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'extension/module/slideshow')) {
+		if (!$this->user->hasPermission('modify', 'extension/module/speslideshow')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

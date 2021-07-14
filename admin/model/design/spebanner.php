@@ -53,8 +53,8 @@ class ModelDesignSpebanner extends Model {
 	}
 
 	public function deleteBanner($banner_id) {
-		$this->db->query("DELETE FROM " . DB_PREFIX . "banner WHERE banner_id = '" . (int)$banner_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "spebanner WHERE banner_id = '" . (int)$banner_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "spebanner_image WHERE banner_id = '" . (int)$banner_id . "'");
 	}
 
 	public function getBanner($banner_id) {

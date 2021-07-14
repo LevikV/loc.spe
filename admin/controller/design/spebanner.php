@@ -300,11 +300,13 @@ class ControllerDesignSpebanner extends Controller {
 			'href' => $this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
+
 		if (!isset($this->request->get['banner_id'])) {
 			$data['action'] = $this->url->link('design/spebanner/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		} else {
 			$data['action'] = $this->url->link('design/spebanner/edit', 'user_token=' . $this->session->data['user_token'] . '&banner_id=' . $this->request->get['banner_id'] . $url, true);
 		}
+
 
 		$data['cancel'] = $this->url->link('design/spebanner', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
