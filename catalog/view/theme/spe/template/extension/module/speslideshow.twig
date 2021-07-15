@@ -1,16 +1,21 @@
 <div class="swiper-viewport">
   <div id="speslideshow{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper"> {% for banner in banners %}
-      <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
-
-        <div>
-          {{ banner.title2 }}
-          {{ banner.title3 }}
-          {{ banner.title4 }}
-          {{ banner.title5 }}
-        </div>
-
-      {% endfor %} </div>
+    <div class="swiper-wrapper">
+        {% for banner in banners %}
+            <div class="swiper-slide text-center" data-name="ThinkDo">
+                {% if banner.link %}
+                    <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+                {% else %}
+                    <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                {% endif %}
+            </div>
+            <div>
+                {{ banner.title2 }}
+                {{ banner.title3 }}
+                {{ banner.title4 }}
+                {{ banner.title5 }}
+            </div>
+        {% endfor %} </div>
   </div>
   <div class="swiper-pagination slideshow{{ module }}"></div>
   <div class="swiper-pager">
@@ -23,13 +28,31 @@
 $('#speslideshow{{ module }}').swiper({
 	mode: 'horizontal',
 	slidesPerView: 1,
-	pagination: '.slideshow{{ module }}',
-	paginationClickable: true,
+    pagination: '.slideshow{{ module }}',
+    paginationClickable: true,
 	nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     spaceBetween: 30,
 	autoplay: 2500,
     autoplayDisableOnInteraction: true,
-	loop: true
+	loop: true,
+    paginationType: 'custom',
+    paginationCustomRender: function(swiper, current, total) {
+        var names = [];
+        $(".swiper-wrapper .swiper-slide").each(function(i) {
+            names.push($(this).data("name"));
+        });
+        var text = "<span style='background-color:black;padding:20px;'>";
+        for (let i = 1; i <= total; i++) {
+            if (current == i) {
+                text += "<span style='border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "</span>";
+            } else {
+                text += "<span style='border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "</span>";
+            }
+
+        }
+        text += "</span>";
+        return text;
+    }
 });
 --></script>
