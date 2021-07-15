@@ -39,9 +39,9 @@ $('#speslideshow{{ module }}').swiper({
         var text = "<span style='background-color:black;padding:20px;'>";
         for (let i = 1; i <= total; i++) {
             if (current == i) {
-                text += "<span style='border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "</span>";
+                text += "<span style='border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
             } else {
-                text += "<span style='border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "</span>";
+                text += "<span style='border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
             }
 
         }
