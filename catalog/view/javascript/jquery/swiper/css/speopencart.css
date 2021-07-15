@@ -72,8 +72,11 @@
 	color: rgba(0,0,0,0.8);
 	font-size: 40px;
 }
+.spe-slide-show {
+	border: none !important;
+}
 .spe-slide-show>.swiper-pagination {
-	bottom: 0;
+	bottom: 20px;
 	left: 0;
 	text-align: left;
 	width: 100%;

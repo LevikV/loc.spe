@@ -20,6 +20,11 @@
     width: 180px;
     float: right;
 }
+@media (max-width: 1400px) {
+    .header-search {
+        width: 130px;
+    }
+}
 
 /*Настройка аккаунта в верхнем меню*/
 .header-account {
