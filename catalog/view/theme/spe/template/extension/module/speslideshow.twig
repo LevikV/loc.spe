@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('#speslideshow{{ module }}').swiper({
 	mode: 'horizontal',
 	slidesPerView: 1,
@@ -36,12 +36,12 @@ $('#speslideshow{{ module }}').swiper({
         $(".swiper-wrapper .swiper-slide").each(function(i) {
             names.push($(this).data("name"));
         });
-        var text = "<span style='background-color:black;padding:20px;'>";
+        var text = "<span style='background-color:transparent;padding:20px;'>";
         for (let i = 1; i <= total; i++) {
             if (current == i) {
-                text += "<span style='border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
+                text += "<span style='display: inline-flex; width:160px; word-wrap: break-word; border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
             } else {
-                text += "<span style='border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
+                text += "<span style='display: inline-flex; width:160px; word-wrap: break-word; border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
             }
 
         }
@@ -49,4 +49,4 @@ $('#speslideshow{{ module }}').swiper({
         return text;
     }
 });
---></script>
+</script>
