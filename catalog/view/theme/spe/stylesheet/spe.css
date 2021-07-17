@@ -1,3 +1,7 @@
+body {
+    font-family: Roboto;
+    background: #f8f8f8;
+}
 .row_spe_top_menu {
     background-color: #222;
     color: white;
@@ -122,12 +126,13 @@
 .top-menu > li > a {
     display: block;
     padding: 18px 18px 30px 18px;
-    font-size: 11px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: white;
     transition: .2s linear;
     position: relative;
+    font-weight: bold;
 }
 /*
 .top-menu > li > a:hover {color: #B03062;}
@@ -249,4 +254,6 @@
     width: 50%;
     text-align: center;
     color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
