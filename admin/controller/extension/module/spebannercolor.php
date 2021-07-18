@@ -1,9 +1,9 @@
 <?php
-class ControllerExtensionModuleSpebannerrow extends Controller {
+class ControllerExtensionModuleSpebannercolor extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/module/spebannerrow');
+		$this->load->language('extension/module/spebannercolor');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -11,7 +11,7 @@ class ControllerExtensionModuleSpebannerrow extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			if (!isset($this->request->get['module_id'])) {
-				$this->model_setting_module->addModule('spebannerrow', $this->request->post);
+				$this->model_setting_module->addModule('spebannercolor', $this->request->post);
 			} else {
 				$this->model_setting_module->editModule($this->request->get['module_id'], $this->request->post);
 			}
@@ -60,19 +60,19 @@ class ControllerExtensionModuleSpebannerrow extends Controller {
 		if (!isset($this->request->get['module_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/spebannerrow', 'user_token=' . $this->session->data['user_token'], true)
+				'href' => $this->url->link('extension/module/spebannercolor', 'user_token=' . $this->session->data['user_token'], true)
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/spebannerrow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
+				'href' => $this->url->link('extension/module/spebannercolor', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
 			);
 		}
 
 		if (!isset($this->request->get['module_id'])) {
-			$data['action'] = $this->url->link('extension/module/spebannerrow', 'user_token=' . $this->session->data['user_token'], true);
+			$data['action'] = $this->url->link('extension/module/spebannercolor', 'user_token=' . $this->session->data['user_token'], true);
 		} else {
-			$data['action'] = $this->url->link('extension/module/spebannerrow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
+			$data['action'] = $this->url->link('extension/module/spebannercolor', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
 		}
 
 		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
@@ -129,11 +129,11 @@ class ControllerExtensionModuleSpebannerrow extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('extension/module/spebannerrow', $data));
+		$this->response->setOutput($this->load->view('extension/module/spebannercolor', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'extension/module/spebannerrow')) {
+		if (!$this->user->hasPermission('modify', 'extension/module/spebannercolor')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
