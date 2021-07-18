@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row spe-banner-row-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span>
+                        {{ spe_banner_row_name }}
+                    </span>
+                </div>
+                {% for banner in banners %}
+                    <div class="col-sm-3">
+                        {% if banner.link %}
+                            <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+                        {% else %}
+                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                        {% endif %}
+                        <span>
+                            {{ banner.title }}
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
