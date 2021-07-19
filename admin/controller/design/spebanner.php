@@ -364,6 +364,7 @@ class ControllerDesignSpebanner extends Controller {
                     'title3'     => $banner_image['title3'],
                     'title4'     => $banner_image['title4'],
                     'title5'     => $banner_image['title5'],
+                    'color'     => $banner_image['color'],
 					'link'       => $banner_image['link'],
 					'image'      => $image,
 					'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),

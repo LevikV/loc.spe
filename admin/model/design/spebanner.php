@@ -18,6 +18,7 @@ class ModelDesignSpebanner extends Model {
 					    title3 = '" .  $this->db->escape($banner_image['title3']) . "', 
 					    title4 = '" .  $this->db->escape($banner_image['title4']) . "', 
 					    title5 = '" .  $this->db->escape($banner_image['title5']) . "', 
+					    color = '" .  $this->db->escape($banner_image['color']) . "', 
 					    link = '" .  $this->db->escape($banner_image['link']) . "', 
 					    image = '" .  $this->db->escape($banner_image['image']) . "', 
 					    sort_order = '" .  (int)$banner_image['sort_order'] . "'");
@@ -43,7 +44,8 @@ class ModelDesignSpebanner extends Model {
 					title2 = '" .  $this->db->escape($banner_image['title2']) . "', 
 					title3 = '" .  $this->db->escape($banner_image['title3']) . "', 
 					title4 = '" .  $this->db->escape($banner_image['title4']) . "', 
-					title5 = '" .  $this->db->escape($banner_image['title5']) . "', 
+					title5 = '" .  $this->db->escape($banner_image['title5']) . "',
+					color = '" .  $this->db->escape($banner_image['color']) . "',  
 					link = '" .  $this->db->escape($banner_image['link']) . "', 
 					image = '" .  $this->db->escape($banner_image['image']) . "', 
 					sort_order = '" . (int)$banner_image['sort_order'] . "'");
@@ -112,6 +114,7 @@ class ModelDesignSpebanner extends Model {
                 'title3'      => $banner_image['title3'],
                 'title4'      => $banner_image['title4'],
                 'title5'      => $banner_image['title5'],
+                'color'      => $banner_image['color'],
 				'link'       => $banner_image['link'],
 				'image'      => $banner_image['image'],
 				'sort_order' => $banner_image['sort_order']
@@ -155,6 +158,7 @@ class ModelDesignSpebanner extends Model {
 				`title3` varchar(64),
 				`title4` varchar(64),
 				`title5` varchar(64),
+				`color` varchar(64),
 				`link` varchar(255) NOT NULL,
 				`image` varchar(255) NOT NULL,
 				`sort_order` INT(3) NOT NULL default 0,
