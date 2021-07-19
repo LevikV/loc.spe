@@ -1,3 +1,40 @@
 .spe-banner-color-block {
     padding: 50px 0;
 }
+.panel-body {position: relative}
+
+
+
+.spe-banner-color-panel {
+    max-width: 208px;
+}
+
+.spe-banner-color-panel__body {
+    min-height: 320px;
+    color: #ffffff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.spe-banner-color-panel__body_cap {
+    width: 100%;
+}
+.spe-banner-color-panel__body_text {
+    width: 100%;
+}
+
+.spe-banner-color-panel__footer {
+    border-top: none;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.spe-banner-color-panel-vertical-top {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+}
+.spe-banner-color-panel-vertical-end {
+    position: absolute;
+    bottom: 8%;
+    left: 8%;
+}
