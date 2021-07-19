@@ -22,6 +22,7 @@ class ControllerExtensionModuleSpebannercolor extends Controller {
                     'title3' => $result['title3'],
                     'title4' => $result['title4'],
                     'title5' => $result['title5'],
+                    'color' => $result['color'],
 					'link'  => $result['link'],
 					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
 				);
