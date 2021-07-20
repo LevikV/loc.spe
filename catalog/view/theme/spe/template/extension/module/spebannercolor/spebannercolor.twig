@@ -7,7 +7,7 @@
         </div>
         {% set i = true %}
         {% for banner in banners %}
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-6 col-sm-3" style="padding: 0;">
                 <div class="panel panel-default spe-banner-color-panel">
                     <div class="panel-body spe-banner-color-panel__body" style="background: url({{ banner.image }});">
                         <div class="{% if i == true %}spe-banner-color-panel-vertical-end{% else %}spe-banner-color-panel-vertical-top{% endif %}">
