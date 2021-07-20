@@ -93,6 +93,8 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 
 		$this->load->model('catalog/product');
 
+
+
 		$data['products'] = array();
 
 		if (!empty($this->request->post['product'])) {
@@ -113,6 +115,78 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 				);
 			}
 		}
+
+		//
+        $data['products2'] = array();
+
+        if (!empty($this->request->post['product2'])) {
+            $products2 = $this->request->post['product2'];
+        } elseif (!empty($module_info['product2'])) {
+            $products2 = $module_info['product2'];
+        } else {
+            $products2 = array();
+        }
+
+        foreach ($products2 as $product_id) {
+            $product_info = $this->model_catalog_product->getProduct($product_id);
+
+            if ($product_info) {
+                $data['products2'][] = array(
+                    'product_id' => $product_info['product_id'],
+                    'name'       => $product_info['name']
+                );
+            }
+        }
+        //
+
+        $data['products3'] = array();
+
+        if (!empty($this->request->post['product3'])) {
+            $products3 = $this->request->post['product3'];
+        } elseif (!empty($module_info['product3'])) {
+            $products3 = $module_info['product3'];
+        } else {
+            $products3 = array();
+        }
+
+        foreach ($products3 as $product_id) {
+            $product_info = $this->model_catalog_product->getProduct($product_id);
+
+            if ($product_info) {
+                $data['products3'][] = array(
+                    'product_id' => $product_info['product_id'],
+                    'name'       => $product_info['name']
+                );
+            }
+        }
+        //
+        //
+        if (isset($this->request->post['tab_title'])) {
+            $data['tab_title'] = $this->request->post['tab_title'];
+        } elseif (!empty($module_info)) {
+            $data['tab_title'] = $module_info['tab_title'];
+        } else {
+            $data['tab_title'] = 'Рекомендуемые 1';
+        }
+        //
+        if (isset($this->request->post['tab_title2'])) {
+            $data['tab_title2'] = $this->request->post['tab_title2'];
+        } elseif (!empty($module_info)) {
+            $data['tab_title2'] = $module_info['tab_title2'];
+        } else {
+            $data['tab_title2'] = 'Рекомендуемые 2';
+        }
+        //
+        if (isset($this->request->post['tab_title3'])) {
+            $data['tab_title3'] = $this->request->post['tab_title3'];
+        } elseif (!empty($module_info)) {
+            $data['tab_title3'] = $module_info['tab_title3'];
+        } else {
+            $data['tab_title3'] = 'Рекомендуемые 3';
+        }
+
+
+
 
 		if (isset($this->request->post['limit'])) {
 			$data['limit'] = $this->request->post['limit'];
