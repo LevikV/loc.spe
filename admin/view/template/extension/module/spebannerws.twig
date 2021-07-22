@@ -24,6 +24,7 @@
         <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
       </div>
       <div class="panel-body">
+
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
@@ -34,20 +35,56 @@
               {% endif %}
             </div>
           </div>
+
+
+
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-banner">{{ entry_banner }}</label>
+            <label class="col-sm-2 control-label" for="input-title">{{ entry_title }}</label>
             <div class="col-sm-10">
-              <select name="banner_id" id="input-banner" class="form-control">
-                {% for banner in banners %}
-                {% if banner.banner_id == banner_id %}
-                <option value="{{ banner.banner_id }}" selected="selected">{{ banner.name }}</option>
-                {% else %}
-                <option value="{{ banner.banner_id }}">{{ banner.name }}</option>
-                {% endif %}
-                {% endfor %}
-              </select>
+              <input type="text" name="title" value="{{ title }}" placeholder="{{ entry_title }}" id="input-title" class="form-control" />
+              {% if error_title %}
+                <div class="text-danger">{{ error_title }}</div>
+              {% endif %}
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-descrip">{{ entry_descrip }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="descrip" value="{{ descrip }}" placeholder="{{ entry_descrip }}" id="input-descrip" class="form-control" />
+              {% if error_descrip %}
+                <div class="text-danger">{{ error_descrip }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-btntxt">{{ entry_btntxt }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="btntxt" value="{{ btntxt }}" placeholder="{{ entry_btntxt }}" id="input-btntxt" class="form-control" />
+              {% if error_btntxt %}
+                <div class="text-danger">{{ error_btntxt }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-image">{{ entry_image }}</label>
+            <div class="col-sm-10">
+
+
+              <a href="" id="thumb-image" data-toggle="image" class="img-thumbnail">
+                <img src="{{ banner_image_thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" />
+              </a>
+              <input type="hidden" name="banner_image" value="{{ banner_image }}" id="input-image" />
+
+            </div>
+          </div>
+
+
+
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
             <div class="col-sm-10">

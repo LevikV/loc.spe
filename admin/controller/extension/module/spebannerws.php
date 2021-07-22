@@ -1,9 +1,9 @@
 <?php
-class ControllerExtensionModuleSpeslideshow extends Controller {
+class ControllerExtensionModuleSpebannerws extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/module/speslideshow');
+		$this->load->language('extension/module/spebannerws');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -11,7 +11,7 @@ class ControllerExtensionModuleSpeslideshow extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			if (!isset($this->request->get['module_id'])) {
-				$this->model_setting_module->addModule('speslideshow', $this->request->post);
+				$this->model_setting_module->addModule('spebannerws', $this->request->post);
 			} else {
 				$this->model_setting_module->editModule($this->request->get['module_id'], $this->request->post);
 			}
@@ -60,19 +60,19 @@ class ControllerExtensionModuleSpeslideshow extends Controller {
 		if (!isset($this->request->get['module_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'], true)
+				'href' => $this->url->link('extension/module/spebannerws', 'user_token=' . $this->session->data['user_token'], true)
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
+				'href' => $this->url->link('extension/module/spebannerws', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true)
 			);
 		}
 
 		if (!isset($this->request->get['module_id'])) {
-			$data['action'] = $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'], true);
+			$data['action'] = $this->url->link('extension/module/spebannerws', 'user_token=' . $this->session->data['user_token'], true);
 		} else {
-			$data['action'] = $this->url->link('extension/module/speslideshow', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
+			$data['action'] = $this->url->link('extension/module/spebannerws', 'user_token=' . $this->session->data['user_token'] . '&module_id=' . $this->request->get['module_id'], true);
 		}
 
 		$data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true);
@@ -89,17 +89,69 @@ class ControllerExtensionModuleSpeslideshow extends Controller {
 			$data['name'] = '';
 		}
 
-		if (isset($this->request->post['banner_id'])) {
-			$data['banner_id'] = $this->request->post['banner_id'];
-		} elseif (!empty($module_info)) {
-			$data['banner_id'] = $module_info['banner_id'];
-		} else {
-			$data['banner_id'] = '';
-		}
 
-		$this->load->model('design/spebanner');
 
-		$data['banners'] = $this->model_design_spebanner->getBanners();
+		//Добавляем свои данные
+        if (isset($this->request->post['title'])) {
+            $data['title'] = $this->request->post['title'];
+        } elseif (!empty($module_info)) {
+            $data['title'] = $module_info['title'];
+        } else {
+            $data['title'] = '';
+        }
+
+        if (isset($this->request->post['descrip'])) {
+            $data['descrip'] = $this->request->post['descrip'];
+        } elseif (!empty($module_info)) {
+            $data['descrip'] = $module_info['descrip'];
+        } else {
+            $data['descrip'] = '';
+        }
+
+        if (isset($this->request->post['btntxt'])) {
+            $data['btntxt'] = $this->request->post['btntxt'];
+        } elseif (!empty($module_info)) {
+            $data['btntxt'] = $module_info['btntxt'];
+        } else {
+            $data['btntxt'] = '';
+        }
+
+
+        //
+
+
+
+
+
+		//Код выбора своего изображения для баннера
+
+        $this->load->model('tool/image');
+
+        if (isset($this->request->post['banner_image'])) {
+            $banner_image = $this->request->post['banner_image'];
+            if (is_file(DIR_IMAGE . $banner_image)) {
+                $data['banner_image'] = $banner_image;
+                $banner_image_thumb = $banner_image;
+                $data['banner_image_thumb'] = $this->model_tool_image->resize($banner_image_thumb, 100, 100);
+            } else {
+                $data['banner_image'] = '';
+                $data['banner_image_thumb'] = $this->model_tool_image->resize('../image/no_image.png', 100, 100);
+            }
+
+        } elseif (!empty($module_info)) {
+            $data['banner_image'] = $module_info['banner_image'];
+            $data['banner_image_thumb'] = $this->model_tool_image->resize($module_info['banner_image'], 100, 100);
+
+        } else {
+            $data['banner_image'] = '';
+            $data['banner_image_thumb'] = $this->model_tool_image->resize('../image/no_image.png', 100, 100);;
+        }
+
+
+
+
+        //
+
 
 		if (isset($this->request->post['width'])) {
 			$data['width'] = $this->request->post['width'];
@@ -129,11 +181,11 @@ class ControllerExtensionModuleSpeslideshow extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('extension/module/speslideshow', $data));
+		$this->response->setOutput($this->load->view('extension/module/spebannerws', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'extension/module/speslideshow')) {
+		if (!$this->user->hasPermission('modify', 'extension/module/spebannerws')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

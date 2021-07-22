@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']    = 'Spe Слайдшоу';
+$_['heading_title']    = 'Spe Banner WS';
 
 // Text
 $_['text_module']      = 'Модули';
@@ -12,6 +12,10 @@ $_['text_edit']        = 'Редактирование';
 
 // Entry
 $_['entry_name']       = 'Название модуля';
+$_['entry_title']      = 'Заголовок';
+$_['entry_descrip']    = 'Описание';
+$_['entry_btntxt']     = 'Текст кнопки';
+$_['entry_image']      = 'Изображение';
 $_['entry_banner']     = 'Баннер';
 $_['entry_width']      = 'Ширина';
 $_['entry_height']     = 'Высота';
