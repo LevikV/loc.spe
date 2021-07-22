@@ -16,6 +16,7 @@ $_['entry_title']      = 'Заголовок';
 $_['entry_descrip']    = 'Описание';
 $_['entry_btntxt']     = 'Текст кнопки';
 $_['entry_image']      = 'Изображение';
+$_['entry_link']       = 'Ссылка для кнопки';
 $_['entry_banner']     = 'Баннер';
 $_['entry_width']      = 'Ширина';
 $_['entry_height']     = 'Высота';

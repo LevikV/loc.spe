@@ -1,38 +1,21 @@
 <?php
-class ControllerExtensionModuleSpeslideshow extends Controller {
+class ControllerExtensionModuleSpebannerws extends Controller {
 	public function index($setting) {
-		static $module = 0;		
 
-		$this->load->model('design/spebanner');
+
 		$this->load->model('tool/image');
 
-        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
-        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/speopencart.css');
-        $this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js');
+
+        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spebannersw/css/spebannerws.css');
+
+        $data['banner_image'] = $this->model_tool_image->resize($setting['banner_image'], $setting['width'], $setting['height']);
+        $data['title'] = $setting['title'];
+        $data['descrip'] = $setting['descrip'];
+        $data['btntxt'] = $setting['btntxt'];
+        $data['link'] = $setting['link'];
 
 
 
-		
-		$data['banners'] = array();
-
-		$results = $this->model_design_spebanner->getBanner($setting['banner_id']);
-
-		foreach ($results as $result) {
-			if (is_file(DIR_IMAGE . $result['image'])) {
-				$data['banners'][] = array(
-					'title' => $result['title'],
-                    'title2' => $result['title2'],
-                    'title3' => $result['title3'],
-                    'title4' => $result['title4'],
-                    'title5' => $result['title5'],
-					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
-				);
-			}
-		}
-
-		$data['module'] = $module++;
-
-		return $this->load->view('extension/module/speslideshow', $data);
+		return $this->load->view('extension/module/spebannerws/spebannerws', $data);
 	}
 }

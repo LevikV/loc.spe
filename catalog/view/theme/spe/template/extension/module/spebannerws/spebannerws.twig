@@ -1,83 +1,9 @@
-<div class="swiper-viewport spe-slide-show">
-  <div id="speslideshow{{ module }}" class="swiper-container">
-    <div class="swiper-wrapper">
-        {% for banner in banners %}
-            <div class="swiper-slide text-center" data-title4="{{ banner.title4 }}" data-title5="{{ banner.title5 }}">
-                {% if banner.link %}
-                    <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
-                {% else %}
-                    <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
-                {% endif %}
-                <div class="spe-title-box">
-                    <div class="spe-title">
-                        {{ banner.title }}
-                    </div>
-                    <div class="spe-title2">
-                        {{ banner.title2 }}
-                    </div>
-                    <div class="spe-title3">
-                        {{ banner.title3 }}
-                    </div>
-                </div>
-            </div>
-        {% endfor %} </div>
-  </div>
-  <div class="swiper-pagination speslideshow{{ module }}"></div>
-  <div class="swiper-pager">
-
-  </div>
-</div>
-
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        autoplay: 2500,
-        loop: true,
-        mode: 'horizontal',
-        slidesPerView: 1,
-        paginationBulletRender: function (swiper, index, className) {
-            var titles4 = [];
-            var titles5 = [];
-            $(".swiper-wrapper .swiper-slide").each(function(i) {
-                titles4.push($(this).data("title4"));
-                titles5.push($(this).data("title5"));
-            });
-            return '<span class="' + className + '">' + titles4[index + 1] + '<br>' + titles5[index + 1] + '</span>';
-        }
-    });
-</script>
-<!--
-<script type="text/javascript">
-    $('#speslideshow{{ module }}').swiper({
-        mode: 'horizontal',
-        slidesPerView: 1,
-        pagination: '.speslideshow{{ module }}',
-        paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        spaceBetween: 30,
-        autoplay: 2500,
-        autoplayDisableOnInteraction: true,
-        loop: true,
-        paginationType: 'custom',
-        paginationCustomRender: function(swiper, current, total) {
-            var names = [];
-            $(".swiper-wrapper .swiper-slide").each(function(i) {
-                names.push($(this).data("name"));
-            });
-            var text = "<span style='background-color:transparent;padding:20px;'>";
-            for (let i = 1; i <= total; i++) {
-                if (current == i) {
-                    text += "<span style='display: inline-flex; width:160px; word-wrap: break-word; border-top:1px solid green;margin-right:4px;color:green;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
-                } else {
-                    text += "<span style='display: inline-flex; width:160px; word-wrap: break-word; border-top:1px solid white;margin-right:4px;color:white;padding:10px;'>" + names[i] + "<br>" + names[i] + "</span>";
-                }
-
-            }
-            text += "</span>";
-            return text;
-        }
-    });
-</script>
--->
+<img src="{{ banner_image }}" alt="{{ banner.title }}" class="img-responsive" />
+<br>
+{{ title }}
+<br>
+{{ descrip }}
+<br>
+{{ btntxt }}
+<br>
+{{ link }}

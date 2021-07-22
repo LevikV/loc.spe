@@ -116,6 +116,13 @@ class ControllerExtensionModuleSpebannerws extends Controller {
             $data['btntxt'] = '';
         }
 
+        if (isset($this->request->post['link'])) {
+            $data['link'] = $this->request->post['link'];
+        } elseif (!empty($module_info)) {
+            $data['link'] = $module_info['link'];
+        } else {
+            $data['link'] = '';
+        }
 
         //
 
