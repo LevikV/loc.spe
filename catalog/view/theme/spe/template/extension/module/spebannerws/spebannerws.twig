@@ -1,9 +1,8 @@
-<img src="{{ banner_image }}" alt="{{ banner.title }}" class="img-responsive" />
-<br>
-{{ title }}
-<br>
-{{ descrip }}
-<br>
-{{ btntxt }}
-<br>
-{{ link }}
+<div class="row spe-banner-sw__block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ banner_image }}); -webkit-background-size: cover; -moz-background-size:  cover; -o-background-size: cover; background-size: cover;">
+
+
+    <h3 class="spe-banner-sw__block_title">{{ title }}</h3>
+    <a class="spe-banner-sw__block_btn" href="{{ link }}">{{ btntxt }}</a>
+    <span class="spe-banner-sw__block_descrip">{{ descrip }}</span>
+
+</div>

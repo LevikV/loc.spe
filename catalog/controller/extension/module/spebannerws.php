@@ -6,7 +6,7 @@ class ControllerExtensionModuleSpebannerws extends Controller {
 		$this->load->model('tool/image');
 
 
-        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spebannersw/css/spebannerws.css');
+        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spebannerws/css/spebannerws.css');
 
         $data['banner_image'] = $this->model_tool_image->resize($setting['banner_image'], $setting['width'], $setting['height']);
         $data['title'] = $setting['title'];
