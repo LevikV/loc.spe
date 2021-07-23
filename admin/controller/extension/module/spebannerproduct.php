@@ -116,73 +116,102 @@ class ControllerExtensionModuleSpebannerproduct extends Controller {
 			}
 		}
 
-		//
-        $data['products2'] = array();
 
-        if (!empty($this->request->post['product2'])) {
-            $products2 = $this->request->post['product2'];
-        } elseif (!empty($module_info['product2'])) {
-            $products2 = $module_info['product2'];
+        //
+        if (isset($this->request->post['title-main'])) {
+            $data['title_main'] = $this->request->post['title-main'];
+        } elseif (!empty($module_info)) {
+            $data['title_main'] = $module_info['title-main'];
         } else {
-            $products2 = array();
+            $data['title_main'] = '';
+        }
+        //
+        if (isset($this->request->post['title-product'])) {
+            $data['title_product'] = $this->request->post['title-product'];
+        } elseif (!empty($module_info)) {
+            $data['title_product'] = $module_info['title-product'];
+        } else {
+            $data['title_product'] = '';
+        }
+        //
+        if (isset($this->request->post['advant'])) {
+            $data['advant'] = $this->request->post['advant'];
+        } elseif (!empty($module_info)) {
+            $data['advant'] = $module_info['advant'];
+        } else {
+            $data['advant'] = '';
+        }
+        //
+        if (isset($this->request->post['advant2'])) {
+            $data['advant2'] = $this->request->post['advant2'];
+        } elseif (!empty($module_info)) {
+            $data['advant2'] = $module_info['advant2'];
+        } else {
+            $data['advant2'] = '';
+        }
+        //
+        if (isset($this->request->post['advant3'])) {
+            $data['advant3'] = $this->request->post['advant3'];
+        } elseif (!empty($module_info)) {
+            $data['advant3'] = $module_info['advant3'];
+        } else {
+            $data['advant3'] = '';
+        }
+        //
+        if (isset($this->request->post['advant4'])) {
+            $data['advant4'] = $this->request->post['advant4'];
+        } elseif (!empty($module_info)) {
+            $data['advant4'] = $module_info['advant4'];
+        } else {
+            $data['advant4'] = '';
+        }
+        //
+        if (isset($this->request->post['advant5'])) {
+            $data['advant5'] = $this->request->post['advant5'];
+        } elseif (!empty($module_info)) {
+            $data['advant5'] = $module_info['advant5'];
+        } else {
+            $data['advant5'] = '';
+        }
+        //
+        if (isset($this->request->post['advant6'])) {
+            $data['advant6'] = $this->request->post['advant6'];
+        } elseif (!empty($module_info)) {
+            $data['advant6'] = $module_info['advant6'];
+        } else {
+            $data['advant6'] = '';
+        }
+        //
+        if (isset($this->request->post['subtxt'])) {
+            $data['subtxt'] = $this->request->post['subtxt'];
+        } elseif (!empty($module_info)) {
+            $data['subtxt'] = $module_info['subtxt'];
+        } else {
+            $data['subtxt'] = '';
         }
 
-        foreach ($products2 as $product_id) {
-            $product_info = $this->model_catalog_product->getProduct($product_id);
+        //Код выбора своего изображения для баннера
 
-            if ($product_info) {
-                $data['products2'][] = array(
-                    'product_id' => $product_info['product_id'],
-                    'name'       => $product_info['name']
-                );
+        $this->load->model('tool/image');
+
+        if (isset($this->request->post['banner_image'])) {
+            $banner_image = $this->request->post['banner_image'];
+            if (is_file(DIR_IMAGE . $banner_image)) {
+                $data['banner_image'] = $banner_image;
+                $banner_image_thumb = $banner_image;
+                $data['banner_image_thumb'] = $this->model_tool_image->resize($banner_image_thumb, 100, 100);
+            } else {
+                $data['banner_image'] = '';
+                $data['banner_image_thumb'] = $this->model_tool_image->resize('../image/no_image.png', 100, 100);
             }
-        }
-        //
 
-        $data['products3'] = array();
-
-        if (!empty($this->request->post['product3'])) {
-            $products3 = $this->request->post['product3'];
-        } elseif (!empty($module_info['product3'])) {
-            $products3 = $module_info['product3'];
-        } else {
-            $products3 = array();
-        }
-
-        foreach ($products3 as $product_id) {
-            $product_info = $this->model_catalog_product->getProduct($product_id);
-
-            if ($product_info) {
-                $data['products3'][] = array(
-                    'product_id' => $product_info['product_id'],
-                    'name'       => $product_info['name']
-                );
-            }
-        }
-        //
-        //
-        if (isset($this->request->post['tab_title'])) {
-            $data['tab_title'] = $this->request->post['tab_title'];
         } elseif (!empty($module_info)) {
-            $data['tab_title'] = $module_info['tab_title'];
+            $data['banner_image'] = $module_info['banner_image'];
+            $data['banner_image_thumb'] = $this->model_tool_image->resize($module_info['banner_image'], 100, 100);
+
         } else {
-            $data['tab_title'] = 'Рекомендуемые 1';
-        }
-        //
-        if (isset($this->request->post['tab_title2'])) {
-            $data['tab_title2'] = $this->request->post['tab_title2'];
-        } elseif (!empty($module_info)) {
-            $data['tab_title2'] = $module_info['tab_title2'];
-        } else {
-            $data['tab_title2'] = 'Рекомендуемые 2';
-        }
-        //
-        if (isset($this->request->post['tab_title3'])) {
-            $data['tab_title3'] = $this->request->post['tab_title3'];
-        } elseif (!empty($module_info)) {
-            $data['tab_title3'] = $module_info['tab_title3'];
-        } else {
-            $data['tab_title3'] = 'Рекомендуемые 3';
+            $data['banner_image'] = '';
+            $data['banner_image_thumb'] = $this->model_tool_image->resize('../image/no_image.png', 100, 100);;
         }
 
 
@@ -193,7 +222,7 @@ class ControllerExtensionModuleSpebannerproduct extends Controller {
 		} elseif (!empty($module_info)) {
 			$data['limit'] = $module_info['limit'];
 		} else {
-			$data['limit'] = 5;
+			$data['limit'] = 1;
 		}
 
 		if (isset($this->request->post['width'])) {

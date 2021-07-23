@@ -34,15 +34,13 @@
               {% endif %}
             </div>
           </div>
-
-
           <div class="form-group">
-
-            <label class="col-sm-2 control-label" for="input-title"><span data-toggle="tooltip" title="{{ help_title }}">{{ entry_title }}</span></label>
+            <label class="col-sm-2 control-label" for="input-title-main"><span data-toggle="tooltip" title="{{ help_title_main }}">{{ entry_title_main }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="tab_title" value="{{ tab_title }}" placeholder="{{ entry_title }}" id="input-title" class="form-control" />
+              <input type="text" name="title-main" value="{{ title_main }}" placeholder="{{ entry_title_main }}" id="input-title-main" class="form-control" />
             </div>
-
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-product"><span data-toggle="tooltip" title="{{ help_product }}">{{ entry_product }}</span></label>
             <div class="col-sm-10">
               <input type="text" name="product_name" value="" placeholder="{{ entry_product }}" id="input-product" class="form-control" />
@@ -55,55 +53,53 @@
               </div>
             </div>
           </div>
-
           <div class="form-group">
-
-            <label class="col-sm-2 control-label" for="input-title2"><span data-toggle="tooltip" title="{{ help_title }}">{{ entry_title }}</span></label>
+            <label class="col-sm-2 control-label" for="input-title-product"><span data-toggle="tooltip" title="{{ help_title_product }}">{{ entry_title_product }}</span></label>
             <div class="col-sm-10">
-              <input type="text" name="tab_title2" value="{{ tab_title2 }}" placeholder="{{ entry_title }}" id="input-title2" class="form-control" />
-            </div>
-
-            <label class="col-sm-2 control-label" for="input-product2"><span data-toggle="tooltip" title="{{ help_product }}">{{ entry_product }}</span></label>
-            <div class="col-sm-10">
-              <input type="text" name="product_name2" value="" placeholder="{{ entry_product }}" id="input-product2" class="form-control" />
-              <div id="featured-product2" class="well well-sm" style="height: 150px; overflow: auto;">
-                {% for product in products2 %}
-                  <div id="featured-product2{{ product.product_id }}"><i class="fa fa-minus-circle"></i> {{ product.name }}
-                    <input type="hidden" name="product2[]" value="{{ product.product_id }}" />
-                  </div>
-                {% endfor %}
-              </div>
+              <input type="text" name="title-product" value="{{ title_product }}" placeholder="{{ entry_title_product }}" id="input-title-product" class="form-control" />
             </div>
           </div>
-
           <div class="form-group">
-
-            <label class="col-sm-2 control-label" for="input-title3"><span data-toggle="tooltip" title="{{ help_title }}">{{ entry_title }}</span></label>
-            <div class="col-sm-10">
-              <input type="text" name="tab_title3" value="{{ tab_title3 }}" placeholder="{{ entry_title }}" id="input-title3" class="form-control" />
+            <label class="col-sm-2 control-label" for="input-advant"><span data-toggle="tooltip" title="{{ help_advant }}">{{ entry_advant }}</span></label>
+            <div class="col-sm-5">
+              <input type="text" name="advant" value="{{ advant }}" placeholder="{{ entry_advant }}" id="input-advant" class="form-control" />
+              <input type="text" name="advant2" value="{{ advant2 }}" placeholder="{{ entry_advant }}" id="input-advant2" class="form-control" />
+              <input type="text" name="advant3" value="{{ advant3 }}" placeholder="{{ entry_advant }}" id="input-advant3" class="form-control" />
             </div>
-
-            <label class="col-sm-2 control-label" for="input-product3"><span data-toggle="tooltip" title="{{ help_product }}">{{ entry_product }}</span></label>
-            <div class="col-sm-10">
-              <input type="text" name="product_name3" value="" placeholder="{{ entry_product }}" id="input-product3" class="form-control" />
-              <div id="featured-product3" class="well well-sm" style="height: 150px; overflow: auto;">
-                {% for product in products3 %}
-                  <div id="featured-product3{{ product.product_id }}"><i class="fa fa-minus-circle"></i> {{ product.name }}
-                    <input type="hidden" name="product3[]" value="{{ product.product_id }}" />
-                  </div>
-                {% endfor %}
-              </div>
+            <div class="col-sm-5">
+              <input type="text" name="advant4" value="{{ advant4 }}" placeholder="{{ entry_advant }}" id="input-advant4" class="form-control" />
+              <input type="text" name="advant5" value="{{ advant5 }}" placeholder="{{ entry_advant }}" id="input-advant5" class="form-control" />
+              <input type="text" name="advant6" value="{{ advant6 }}" placeholder="{{ entry_advant }}" id="input-advant6" class="form-control" />
             </div>
           </div>
-
-
-
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-subtxt"><span data-toggle="tooltip" title="{{ help_subtxt }}">{{ entry_subtxt }}</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="subtxt" value="{{ subtxt }}" placeholder="{{ entry_subtxt }}" id="input-subtxt" class="form-control" />
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-limit">{{ entry_limit }}</label>
             <div class="col-sm-10">
-              <input type="text" name="limit" value="{{ limit }}" placeholder="{{ entry_limit }}" id="input-limit" class="form-control" />
+              <input type="text" name="limit"  value="{{ limit }}" placeholder="{{ entry_limit }}" id="input-limit" class="form-control"/>
             </div>
           </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-image"><span data-toggle="tooltip" title="{{ help_image }}">{{ entry_image }}</span></label>
+            <div class="col-sm-10">
+
+
+              <a href="" id="thumb-image" data-toggle="image" class="img-thumbnail">
+                <img src="{{ banner_image_thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" />
+              </a>
+              <input type="hidden" name="banner_image" value="{{ banner_image }}" id="input-image" />
+
+            </div>
+          </div>
+
+
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
             <div class="col-sm-10">
@@ -170,67 +166,6 @@ $('#featured-product').delegate('.fa-minus-circle', 'click', function() {
 });
 //--></script>
 
-
-  <script type="text/javascript"><!--
-    $('input[name=\'product_name2\']').autocomplete({
-      source: function(request, response) {
-        $.ajax({
-          url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
-          dataType: 'json',
-          success: function(json) {
-            response($.map(json, function(item) {
-              return {
-                label: item['name'],
-                value: item['product_id']
-              }
-            }));
-          }
-        });
-      },
-      select: function(item) {
-        $('input[name=\'product_name2\']').val('');
-
-        $('#featured-product2' + item['value']).remove();
-
-        $('#featured-product2').append('<div id="featured-product2' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product2[]" value="' + item['value'] + '" /></div>');
-      }
-    });
-
-    $('#featured-product2').delegate('.fa-minus-circle', 'click', function() {
-      $(this).parent().remove();
-    });
-    //--></script>
-
-
-  <script type="text/javascript"><!--
-    $('input[name=\'product_name3\']').autocomplete({
-      source: function(request, response) {
-        $.ajax({
-          url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
-          dataType: 'json',
-          success: function(json) {
-            response($.map(json, function(item) {
-              return {
-                label: item['name'],
-                value: item['product_id']
-              }
-            }));
-          }
-        });
-      },
-      select: function(item) {
-        $('input[name=\'product_name3\']').val('');
-
-        $('#featured-product3' + item['value']).remove();
-
-        $('#featured-product3').append('<div id="featured-product3' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product3[]" value="' + item['value'] + '" /></div>');
-      }
-    });
-
-    $('#featured-product3').delegate('.fa-minus-circle', 'click', function() {
-      $(this).parent().remove();
-    });
-    //--></script>
 
 
 </div>
