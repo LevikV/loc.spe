@@ -7,3 +7,6 @@ $_['heading_title'] = 'Spe Banner Product';
 
 // Text
 $_['text_tax']      = 'Без НДС:';
+$_['in_stock']      = 'В наличии';
+$_['stock_off']      = 'Под заказ';
+$_['link_title']      = 'Подробнее';

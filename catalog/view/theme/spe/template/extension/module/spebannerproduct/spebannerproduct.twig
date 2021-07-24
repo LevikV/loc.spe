@@ -1,23 +1,60 @@
 <div class="row">
+    <div class="col-xs-12">
+        <h2>{{ title_main }}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <img src="{{ banner_image }}" alt="">
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <h4>{{ product.name }}</h4>
+        <ul>
+            <li>{{ advant }}</li>
+            <li>{{ advant2 }}</li>
+            <li>{{ advant3 }}</li>
+            <li>{{ advant4 }}</li>
+            <li>{{ advant5 }}</li>
+            <li>{{ advant6 }}</li>
+        </ul>
+        {% if product.price %}
+            <p class="price">
+                {% if not product.special %}
+                    {{ product.price }}
+                {% else %}
+                    <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <button type="button" onclick="cart.add('{{ product.product_id }}');">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="hidden-xs hidden-sm hidden-md">
+                {{ button_cart }}
+            </span>
+        </button>
+
+        {% if product.stock %}
+            <p>
+                {{ in_stock }}
+            </p>
+        {% else %}
+            {{ stock_off }}
+        {% endif %}
+
+        <p>{{ subtxt }}</p>
+
+        <p>
+            <a href="{{ product.href }}">{{ link_title }}</a>
+        </p>
+
+    </div>
+    <div class="col-xs-12">
+
+    </div>
+    
+    
+    
   <div class="col-xs-12">
-    <ul class="nav nav-pills">
-      <li class="active">
-        <a href="#spe-featured-tab-1" data-toggle="pill">{{ tab_title }}</a>
-      </li>
 
-      {% if products2 %}
-        <li>
-          <a href="#spe-featured-tab-2" data-toggle="pill">{{ tab_title2 }}</a>
-        </li>
-      {% endif %}
-
-      {% if products3 %}
-        <li>
-          <a href="#spe-featured-tab-3" data-toggle="pill">{{ tab_title3 }}</a>
-        </li>
-      {% endif %}
-
-    </ul>
     <div class="tab-content">
       <div id="spe-featured-tab-1" class="tab-pane fade in active">
 
@@ -53,7 +90,7 @@
                 {% endif %}
               </div>
               <div class="button-group">
-                <button type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+
                 <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
                 <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
               </div>
@@ -62,92 +99,7 @@
         {% endfor %}
 
       </div>
-      <div id="spe-featured-tab-2" class="tab-pane fade">
 
-        {% for product in products2 %}
-          <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="product-thumb transition">
-              <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
-                <p>{{ product.description }}</p>
-                {% if product.rating %}
-                  <div class="rating">
-                    {% for i in 5 %}
-                      {% if product.rating < i %}
-                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% else %}
-                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-                {% if product.price %}
-                  <p class="price">
-                    {% if not product.special %}
-                      {{ product.price }}
-                    {% else %}
-                      <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
-                    {% endif %}
-                    {% if product.tax %}
-                      <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
-                    {% endif %}
-                  </p>
-                {% endif %}
-              </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-
-      </div>
-      <div id="spe-featured-tab-3" class="tab-pane fade">
-
-        {% for product in products3 %}
-          <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="product-thumb transition">
-              <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
-                <p>{{ product.description }}</p>
-                {% if product.rating %}
-                  <div class="rating">
-                    {% for i in 5 %}
-                      {% if product.rating < i %}
-                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% else %}
-                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-                {% if product.price %}
-                  <p class="price">
-                    {% if not product.special %}
-                      {{ product.price }}
-                    {% else %}
-                      <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
-                    {% endif %}
-                    {% if product.tax %}
-                      <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
-                    {% endif %}
-                  </p>
-                {% endif %}
-              </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-
-      </div>
     </div>
 
   </div>
