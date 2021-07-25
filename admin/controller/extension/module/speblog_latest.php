@@ -90,10 +90,10 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
         $data['user_token'] = $this->session->data['user_token'];
 
 		//
-        if (isset($this->request->post['article_blog_category'])) {
-            $categories = $this->request->post['article_blog_category'];
-        } elseif (isset($this->request->get['article_id'])) {
-            $categories = $this->model_blog_article->getArticleCategories($this->request->get['article_id']);
+        if (isset($this->request->post['article_category'])) {
+            $categories = $this->request->post['article_category'];
+        } elseif (isset($module_info['article_category'])) {
+            $categories = $module_info['article_category'];
         } else {
             $categories = array();
         }
