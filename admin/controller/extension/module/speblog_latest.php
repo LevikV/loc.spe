@@ -88,7 +88,35 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
 
 		//spe++
         $data['user_token'] = $this->session->data['user_token'];
-        //spe--
+
+		//
+        if (isset($this->request->post['article_blog_category'])) {
+            $categories = $this->request->post['article_blog_category'];
+        } elseif (isset($this->request->get['article_id'])) {
+            $categories = $this->model_blog_article->getArticleCategories($this->request->get['article_id']);
+        } else {
+            $categories = array();
+        }
+
+        $data['article_categories'] = array();
+
+        foreach ($categories as $blog_category_id) {
+            $category_info = $this->model_blog_category->getCategory($blog_category_id);
+
+            if ($category_info) {
+                $data['article_categories'][] = array(
+                    'blog_category_id' => $category_info['blog_category_id'],
+                    'name' => ($category_info['path']) ? $category_info['path'] . ' &gt; ' . $category_info['name'] : $category_info['name']
+                );
+            }
+        }
+
+
+
+
+
+
+		//spe--
 
 
 		if (isset($this->request->post['name'])) {

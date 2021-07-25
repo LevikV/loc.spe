@@ -39,11 +39,13 @@
             <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="{{ help_category }}">{{ entry_category }}</span></label>
             <div class="col-sm-10">
               <input type="text" name="category" value="" placeholder="{{ entry_category }}" id="input-category" class="form-control" />
-              <div id="article-category" class="well well-sm" style="height: 150px; overflow: auto;"> {% for article_category in article_categories %}
+              <div id="article-category" class="well well-sm" style="height: 150px; overflow: auto;">
+                {% for article_category in article_categories %}
                   <div id="article-category{{ article_category.blog_category_id }}"><i class="fa fa-minus-circle"></i> {{ article_category.name }}
                     <input type="hidden" name="article_category[]" value="{{ article_category.blog_category_id }}" />
                   </div>
-                {% endfor %}</div>
+                {% endfor %}
+              </div>
             </div>
           </div>
 
