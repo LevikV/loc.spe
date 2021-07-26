@@ -10,16 +10,32 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
 
 		$this->load->model('tool/image');
 
+		$this->load->model('extension/module/speblog_latest');
+
+        if (!empty($setting['article_category'])) {
+            $category = array_slice($setting['article_category'], 0);
+            $categories = array();
+            foreach ($category as $category_id) {
+                $categoryinfo = $this->model_extension_module_speblog_latest->getCategoryDescriptions($category_id);
+                $categories[] = array(
+                    'id' => $category_id,
+                'name' => $categoryinfo[$this->config->get('config_language_id')]['name']);
+            }
+            $data['categories'] = $categories;
+        }
+
         $data['articles'] = array();
 
-		if (!empty($setting['article_category'])) {
-            $categories = array_slice($setting['article_category'], 0);
-            foreach ($categories as $category_id) {
+		if (!empty($categories)) {
+
+            foreach ($categories as $category) {
+
+
                 $filter_data = array(
                     'sort'  => 'p.date_added',
                     'order' => 'DESC',
                     'start' => 0,
-                    'filter_blog_category_id' => $category_id,
+                    'filter_blog_category_id' => $category['id'],
                     'limit' => $setting['limit']
                 );
 
@@ -39,7 +55,7 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
                             $rating = false;
                         }
 
-                        $data['articles'][] = array(
+                        $data['articles'][$category['id']][] = array(
                             'article_id'  => $result['article_id'],
                             'thumb'       => $image,
                             'name'        => $result['name'],
@@ -54,9 +70,7 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
 
 
             }
-            echo '<pre>';
-            print_r($categories);
-            echo '/<pre>';
+
             return $this->load->view('extension/module/speblog_latest/speblog_latest', $data);
 
         }
