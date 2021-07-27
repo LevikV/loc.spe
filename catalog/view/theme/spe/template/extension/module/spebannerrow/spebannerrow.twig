@@ -3,20 +3,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <span>
+                    <h2>
                         {{ spe_banner_row_name }}
-                    </span>
+                    </h2>
                 </div>
                 {% for banner in banners %}
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 spe-banner-row-block__item">
                         {% if banner.link %}
-                            <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+                            <a class="spe-banner-row-block__item_img" href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
                         {% else %}
-                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="spe-banner-row-block__item_img img-responsive" />
                         {% endif %}
-                        <span>
-                            {{ banner.title }}
-                        </span>
+                        {% if banner.link %}
+                            <a href="{{ banner.link }}" class="spe-banner-row-block__item_caption">{{ banner.title }}</a>
+                        {% else %}
+                            <span class="spe-banner-row-block__item_caption">{{ banner.title }}</span>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>

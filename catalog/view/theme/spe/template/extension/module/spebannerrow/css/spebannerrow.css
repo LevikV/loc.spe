@@ -2,3 +2,27 @@
     background: #ffffff;
     padding: 50px 0;
 }
+.spe-banner-row-block__item {
+    text-align: center;
+    transition: opacity .4s;
+}
+.spe-banner-row-block__item:hover {
+    opacity: 0.6;
+}
+.spe-banner-row-block__item_img {
+    display: block;
+    padding-top: 20px;
+}
+.spe-banner-row-block__item_caption {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    padding-top: 30px;
+}
+.spe-banner-row-block__item_caption:hover {
+    color: #000000;
+}
