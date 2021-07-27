@@ -5,6 +5,8 @@ class ControllerExtensionModuleSpebannerproduct extends Controller {
 
 		$this->load->model('catalog/product');
 
+        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spebannerproduct/css/spebannerproduct.css');
+
 		$this->load->model('tool/image');
 
 		$data['products'] = array();

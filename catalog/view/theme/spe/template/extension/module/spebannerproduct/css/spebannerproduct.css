@@ -1,0 +1,13 @@
+.spe-banner-prod-block {
+    margin-top: 50px;
+}
+.spe-banner-prod-block__img-block, .spe-banner-prod-block__item-block, .spe-banner-prod-block__title-block {
+    padding: 0 30px;
+}
+.spe-banner-prod-block__title-block {
+    padding-bottom: 15px;
+}
+
+.spe-banner-prod-block__img-block_image {
+    border-radius: 8px;
+}
