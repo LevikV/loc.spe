@@ -11,12 +11,16 @@
 .spe-banner-color-panel {
     max-width: 260px;
 }
+.spe-banner-color-panel:hover .spe-banner-color-panel__body {
+    opacity: 0.8;
+}
 
 .spe-banner-color-panel__body {
     min-height: 300px;
     color: #ffffff;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    transition: opacity .4s;
 }
 
 .spe-banner-color-panel__body_cap {
@@ -24,10 +28,12 @@
     font-size: 30px;
     font-weight: bold;
     padding-bottom: 20px;
+    line-height: 1.1em;
 }
 .spe-banner-color-panel__body_text {
     width: 100%;
     font-size: 18px;
+    font-weight: 400;
 }
 
 .spe-banner-color-panel__footer {
@@ -42,6 +48,15 @@
     padding: 15px 0;
     letter-spacing: 3px;
 }
+.spe-banner-color-panel__footer_caption {
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+.spe-banner-color-panel__footer_caption:hover {
+    color: #ffffff;
+}
+
 .spe-banner-color-panel-vertical-top {
     position: absolute;
     top: 8%;

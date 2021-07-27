@@ -2,6 +2,95 @@ body {
     font-family: Roboto;
     background: #f8f8f8;
 }
+
+/*Настройки темы для общих элементов всего сайта*/
+
+/*Настройка вкладок табов*/
+.nav-pills>li, .nav-tabs>li {
+    min-width: 240px;
+    display: inline-block;
+    overflow: hidden;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+.nav-pills>li>a, .nav-tabs>li>a {
+    display: block;
+    padding: 19px 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    background: #eaeaea;
+    color: rgba(34,34,34,.66);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: background .4s;
+    -o-transition: background .4s;
+    transition: background .4s;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li>a:hover, .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li>a:hover {
+    background: #fff !important;
+    color: #222 !important;
+}
+
+.nav-pills>li>a:before, .nav-tabs>li>a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 0;
+    height: 3px;
+    background: #0070bc;
+    -webkit-transition: width .4s;
+    -o-transition: width .4s;
+    transition: width .4s;
+}
+.nav-pills>li.active>a:before, .nav-pills>li>a:hover:before, .nav-tabs>li.active>a:before, .nav-tabs>li>a:hover:before {
+    width: calc(100% + 2px);
+}
+
+/*Настройка блоков миниатюр товаров*/
+.product-thumb {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 16px 32px rgb(0 15 30 / 8%);
+
+}
+.product-thumb .image {
+    transition: opacity .4s;
+}
+
+.product-thumb:hover .image {
+    opacity: 0.8;
+}
+.product-thumb>.caption>h5 {
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.product-thumb>.caption>h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4em;
+    min-height: 70px;
+}
+.product-thumb .price {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+.product-thumb .price-old {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+/**/
 .row_spe_top_menu {
     background-color: #222;
     color: white;

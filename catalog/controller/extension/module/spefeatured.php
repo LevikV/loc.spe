@@ -3,7 +3,11 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 	public function index($setting) {
 		$this->load->language('extension/module/spefeatured');
 
+        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spefeatured/css/spefeatured.css');
+
 		$this->load->model('catalog/product');
+
+        $this->load->model('catalog/speproduct');
 
 		$this->load->model('tool/image');
 
@@ -15,6 +19,10 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 			$setting['limit'] = 4;
 		}
 
+        if ($setting['name']) {
+            $data['name'] = $setting['name'];
+        }
+
         //Получаем данные по продуктам вкладки 1
 		if (!empty($setting['product'])) {
 		    $data['tab_title'] = $setting['tab_title'];
@@ -23,6 +31,11 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 
 			foreach ($products as $product_id) {
 				$product_info = $this->model_catalog_product->getProduct($product_id);
+                $main_category = $this->model_catalog_speproduct->getMainCategory($product_id);
+
+                if($main_category){
+                    $main_category_name = $main_category['category_name'];
+                }
 
 				if ($product_info) {
 					if ($product_info['image']) {
@@ -59,6 +72,7 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
 						'name'        => $product_info['name'],
+                        'namecat'     => $main_category_name,
 						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
@@ -78,6 +92,11 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 
             foreach ($products as $product_id) {
                 $product_info = $this->model_catalog_product->getProduct($product_id);
+                $main_category = $this->model_catalog_speproduct->getMainCategory($product_id);
+
+                if($main_category){
+                    $main_category_name = $main_category['category_name'];
+                }
 
                 if ($product_info) {
                     if ($product_info['image']) {
@@ -114,6 +133,7 @@ class ControllerExtensionModuleSpefeatured extends Controller {
                         'product_id'  => $product_info['product_id'],
                         'thumb'       => $image,
                         'name'        => $product_info['name'],
+                        'namecat'     => $main_category_name,
                         'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
                         'price'       => $price,
                         'special'     => $special,
@@ -133,6 +153,11 @@ class ControllerExtensionModuleSpefeatured extends Controller {
 
             foreach ($products as $product_id) {
                 $product_info = $this->model_catalog_product->getProduct($product_id);
+                $main_category = $this->model_catalog_speproduct->getMainCategory($product_id);
+
+                if($main_category){
+                    $main_category_name = $main_category['category_name'];
+                }
 
                 if ($product_info) {
                     if ($product_info['image']) {
@@ -169,6 +194,7 @@ class ControllerExtensionModuleSpefeatured extends Controller {
                         'product_id'  => $product_info['product_id'],
                         'thumb'       => $image,
                         'name'        => $product_info['name'],
+                        'namecat'     => $main_category_name,
                         'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
                         'price'       => $price,
                         'special'     => $special,

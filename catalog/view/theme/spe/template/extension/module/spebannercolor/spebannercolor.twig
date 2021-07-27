@@ -7,23 +7,25 @@
         </div>
         {% set i = true %}
         {% for banner in banners %}
-            <div class="col-xs-6 col-sm-3" >
-                <div class="panel panel-default spe-banner-color-panel">
-                    <div class="panel-body spe-banner-color-panel__body" style="background: url({{ banner.image }});">
-                        <div class="{% if i == true %}spe-banner-color-panel-vertical-end{% else %}spe-banner-color-panel-vertical-top{% endif %}">
-                            <div class="spe-banner-color-panel__body_cap">
-                                {{ banner.title2 }}
-                            </div>
-                            <div class="spe-banner-color-panel__body_text">
-                                {{ banner.title3 }}
+            <a href="{{ banner.link }}">
+                <div class="col-xs-6 col-sm-3" >
+                    <div class="panel panel-default spe-banner-color-panel">
+                        <div class="panel-body spe-banner-color-panel__body" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ banner.image }}); -webkit-background-size: cover; -moz-background-size:  cover; -o-background-size: cover; background-size: cover;">
+                            <div class="{% if i == true %}spe-banner-color-panel-vertical-end{% else %}spe-banner-color-panel-vertical-top{% endif %}">
+                                <div class="spe-banner-color-panel__body_cap">
+                                    {{ banner.title2 }}
+                                </div>
+                                <div class="spe-banner-color-panel__body_text">
+                                    {{ banner.title3 }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-footer spe-banner-color-panel__footer" style="background: {{ banner.color }}">
-                        {{ banner.title }}
+                        <div class="panel-footer spe-banner-color-panel__footer" style="background: {{ banner.color }}">
+                            <span class="spe-banner-color-panel__footer_caption">{{ banner.title }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
             {% set i = not i %}
         {% endfor %}
     </div>
