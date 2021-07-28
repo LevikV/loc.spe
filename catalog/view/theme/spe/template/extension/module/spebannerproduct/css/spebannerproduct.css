@@ -52,6 +52,9 @@
     font-weight: 400;
     text-decoration: line-through;
 }
+.spe-banner-prod-panel__body__btn-block {
+    padding: 5px 14px;
+}
 .spe-banner-prod-panel__body__btn-block_btn {
     padding: 15px 58px;
     background-color: #1272af;
@@ -67,6 +70,11 @@
 .spe-banner-prod-panel__body__btn-block_btn:hover {
     background-color: #000000;
 }
+.spe-banner-prod-panel__body__stock {
+    padding: 25px 15px;
+}
+
+
 
 .spe-banner-prod-panel__footer {
     background-color: #1272af;
