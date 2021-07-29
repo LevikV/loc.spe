@@ -39,8 +39,20 @@
       </div>
     </div>
     <hr>
-    <p>{{ powered }}</p>
-  </div>
+    <div class="row spe-footer-bottom">
+      <div class="spe-footer-bottom__left-block">
+        <p>{{ powered }}</p>
+      </div>
+      <div class="spe-footer-bottom__right-block">
+        <img class="spe-footer-bottom__right-block_image" src="image/catalog/logo_payments/logo_payments_jcb.png" alt="">
+        <img class="spe-footer-bottom__right-block_image" src="image/catalog/logo_payments/logo_payments_mastercard.png" alt="">
+        <img class="spe-footer-bottom__right-block_image" src="image/catalog/logo_payments/logo_payments_mir.png" alt="">
+        <img class="spe-footer-bottom__right-block_image" src="image/catalog/logo_payments/logo_payments_sber.png" alt="">
+        <img class="spe-footer-bottom__right-block_image" src="image/catalog/logo_payments/logo_payments_visa.png" alt="">
+      </div>
+    </div>
+    </div>
+
 </footer>
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>

@@ -313,7 +313,7 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding-top: 30px;
-	background-color: #303030;
+	background-color: #DDDDDD;
 	border-top: 1px solid #ddd;
 	color: #e2e2e2;
 }
@@ -322,17 +322,41 @@ footer hr {
 	border-bottom: 1px solid #666;
 }
 footer a {
-	color: #ccc;
+	color: #707070;
+	transition: color .4s;
+	position: relative;
+}
+footer a:after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: #1272af;
+	transition: width .4s;
 }
 footer a:hover {
-	color: #fff;
+	color: #1272af;
+}
+footer a:hover:after {
+	width: 100%;
 }
 footer h5 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: bold;
-	color: #fff;
+	color: #222222;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }
+footer ul li {
+	padding: 5px 0;
+}
+footer p {
+	color: #707070;
+	font-size: 13px;
+}
+
 /* alert */
 .alert {
 	padding: 8px 14px 8px 14px;

@@ -357,3 +357,17 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
 }
+
+/* Настройки подвала*/
+
+.spe-footer-bottom__right-block {
+    float: right;
+}
+.spe-footer-bottom__left-block {
+    float: left;
+    padding: 10px 0;
+}
+.spe-footer-bottom__right-block_image {
+    margin-right: 5px;
+    border-radius: 4px;
+}
