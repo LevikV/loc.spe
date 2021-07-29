@@ -42,15 +42,13 @@
                     </div>
                     <div class="spe-banner-prod-panel__body__stock">
                         {% if product.stock %}
-                            <p>
-                                {{ in_stock }}
-                            </p>
+                            <span class="spe-banner-prod-panel__body__stock_title-in">{{ in_stock }}</span>
                         {% else %}
-                            {{ stock_off }}
+                            <span class="spe-banner-prod-panel__body__stock_title-off">{{ stock_off }}</span>
                         {% endif %}
                     </div>
                     <div class="spe-banner-prod-panel__body__subtxt">
-                        <p>{{ subtxt }}</p>
+                        {{ subtxt }}
                     </div>
 
                 </div>

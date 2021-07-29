@@ -4,8 +4,11 @@
 .spe-banner-prod-block {
     margin-top: 50px;
 }
-.spe-banner-prod-block__img-block, .spe-banner-prod-block__item-block, .spe-banner-prod-block__title-block {
+.spe-banner-prod-block__img-block, .spe-banner-prod-block__title-block {
     padding: 0 30px;
+}
+.spe-banner-prod-block__item-block {
+    padding: 0 30px 0 0;
 }
 .spe-banner-prod-block__title-block {
     padding-bottom: 15px;
@@ -19,27 +22,30 @@
     box-shadow: 0 16px 32px rgb(0 15 30 / 8%);
     height: 100%;
     position: relative;
+    padding: 0 20px;
 }
 .spe-banner-prod-panel__heading {
     background-color: #ffffff !important;
     border: none;
     border-top-left-radius: 8px !important;
     border-top-right-radius: 8px !important;
-    padding: 25px 15px;
+    padding: 25px 0;
 }
 .spe-banner-prod-panel__heading_text {
     font-size: 22px;
     font-weight: bold;
+    line-height: 1.4em;
 }
 .spe-banner-prod-panel__body__advant>ul {
     color: #000000;
     font-size: 14px;
+    padding: 0 0 0 20px;
 }
 .spe-banner-prod-panel__body__advant>ul>li {
     line-height: 2em;
 }
 .spe-banner-prod-panel__body__price {
-    padding: 25px 15px;
+    padding: 25px 0;
 }
 .spe-banner-prod-panel__body__price .price {
     color: #444444;
@@ -53,7 +59,7 @@
     text-decoration: line-through;
 }
 .spe-banner-prod-panel__body__btn-block {
-    padding: 5px 14px;
+    padding: 5px 0;
 }
 .spe-banner-prod-panel__body__btn-block_btn {
     padding: 15px 58px;
@@ -71,10 +77,25 @@
     background-color: #000000;
 }
 .spe-banner-prod-panel__body__stock {
-    padding: 25px 15px;
+    padding: 25px 0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
-
-
+.spe-banner-prod-panel__body__stock_title-in {
+    color: #358540;
+}
+.spe-banner-prod-panel__body__stock_title-off {
+    color: #ff0000;
+}
+.spe-banner-prod-panel__body__subtxt {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666666;
+}
 
 .spe-banner-prod-panel__footer {
     background-color: #1272af;
