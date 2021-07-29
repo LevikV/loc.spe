@@ -104,6 +104,16 @@ body {
     padding-top: 20px;
 }
 
+.header-block-fixed {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+}
+
+
+
+
 /*Настройка верхнего логотипа*/
 .header-logo {
     margin: 0px;
