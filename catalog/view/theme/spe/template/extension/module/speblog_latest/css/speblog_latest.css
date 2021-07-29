@@ -1,37 +1,22 @@
-.spe-banner-sw__block {
-    border-radius: 8px;
-
-    text-align: center;
-    color: #ffffff;
-
+.spe-blog-latest__heading-block {
+    padding: 25px 30px;
 }
-.spe-banner-sw__block_title {
-    display: block;
-    margin: 30px 0 30px 0;
-    color: #ffffff;
-    font-size: 86px;
+.spe-blog-latest__nav {
+    margin-bottom: 9px;
+    white-space: nowrap;
+    padding: 0 15px 20px 15px;
 }
-.spe-banner-sw__block_btn {
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    padding: 10px 15px;
-    color: #ffffff;
-    background: transparent;
-    font-size: 16px;
-    font-weight: bolder;
+.spe-blog-latest__article .product-thumb>.caption>h4 {
+    min-height: 40px;
+    margin-top: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    color: #000000;
 }
-.spe-banner-sw__block_btn:hover {
-    background: #ffffff;
-    color: #222222;
-    font-weight: bolder;
-    transition: background .6s;
-    transition-property: background;
-    transition-duration: 0.6s;
-    transition-timing-function: ease;
-    transition-delay: 0s
-}
-.spe-banner-sw__block_descrip {
-    display: block;
-    margin: 30px 0 40px 0;
-    font-size: 14px;
+.spe-blog-latest__article .product-thumb>.caption>p {
+    min-height: 80px;
+    color: #444444;
+    font-weight: bold;
 }

@@ -12,6 +12,8 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
 
 		$this->load->model('extension/module/speblog_latest');
 
+        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/speblog_latest/css/speblog_latest.css');
+
         if (!empty($setting['article_category'])) {
             $category = array_slice($setting['article_category'], 0);
             $categories = array();
@@ -55,11 +57,23 @@ class ControllerExtensionModuleSpeblogLatest extends Controller {
                             $rating = false;
                         }
 
+                        if (strlen($result['name']) > 32) {
+                            $articlename = utf8_substr(strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')), 0, 32) . '...';
+                        } else {
+                            $articlename = $result['name'];
+                        }
+
+                        if (strlen($result['description']) > 120) {
+                            $articledescrip = utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 120) . '...';
+                        } else {
+                            $articledescrip = $result['description'];
+                        }
+
                         $data['articles'][$category['id']][] = array(
                             'article_id'  => $result['article_id'],
                             'thumb'       => $image,
-                            'name'        => $result['name'],
-                            'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('configblog_article_description_length')) . '..',
+                            'name'        => $articlename,
+                            'description' => $articledescrip,
                             'rating'      => $rating,
                             'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                             'viewed'      => $result['viewed'],
