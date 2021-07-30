@@ -225,6 +225,20 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+            /*  ++ Spe start ++   */
+            //Добавляем свой пункт на меню в меню Админки
+
+            if ($this->user->hasPermission('access', 'extension/module/spemenu')) {
+                $marketplace[] = array(
+                    'name'	   => 'Spe Menu',
+                    'href'     => $this->url->link('extension/module/spemenu', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            }
+
+            /*  -- Spe end --   */
+
 					
 			if ($marketplace) {					
 				$data['menus'][] = array(
