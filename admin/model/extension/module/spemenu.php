@@ -22,5 +22,10 @@ class ModelExtensionModuleSpemenu extends Model {
         return $tree;
     }
 
+    public function addItem($data) {
+        $this->db->query("INSERT INTO " . DB_PREFIX . "spemenu SET title = '" . $this->db->escape($data['title']) . "', link = '" . $this->db->escape($data['link']) . "', parent_id = " . (int)$data['parent']);
+        return $this->db->getLastId();
+    }
+
 
 }

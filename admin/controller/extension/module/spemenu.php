@@ -127,6 +127,74 @@ class ControllerExtensionModuleSpemenu extends Controller {
         $this->response->setOutput($this->load->view('extension/module/spemenu_form', $data));
     }
 
+    public function edit() {
+        $this->load->language('extension/module/spemenu');
+        $this->document->setTitle($this->language->get('heading_title'));
+        $this->load->model('extension/module/spemenu');
+
+        if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+            // save form
+            $this->model_extension_module_spemenu->editItem($this->request->get['spemenu_id'], $this->request->post['spemenu']);
+            $this->session->data['success'] = $this->language->get('text_success');
+            $this->cache->delete('spemenu');
+            $this->response->redirect($this->url->link('extension/module/spemenu', 'user_token=' . $this->session->data['user_token'], true));
+        }
+
+        $data['text_form'] = $this->language->get('text_edit');
+
+        if (isset($this->error['warning'])) {
+            $data['error_warning'] = $this->error['warning'];
+        } else {
+            $data['error_warning'] = '';
+        }
+
+        if (isset($this->error['title'])) {
+            $data['error_title'] = $this->error['title'];
+        } else {
+            $data['error_title'] = array();
+        }
+
+        if (isset($this->error['link'])) {
+            $data['error_link'] = $this->error['link'];
+        } else {
+            $data['error_link'] = array();
+        }
+
+        $data['breadcrumbs'] = array();
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true)
+        );
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('heading_title'),
+            'href' => $this->url->link('extension/module/spemenu', 'user_token=' . $this->session->data['user_token'], true)
+        );
+
+        $data['action'] = $this->url->link('extension/module/spemenu/edit', 'user_token=' . $this->session->data['user_token'] . '&spemenu_id=' . $this->request->get['spemenu_id'], true);
+
+        $data['cancel'] = $this->url->link('extension/module/spemenu', 'user_token=' . $this->session->data['user_token'], true);
+
+        $data['user_token'] = $this->session->data['user_token'];
+
+        $this->load->model('localisation/language');
+
+        $data['languages'] = $this->model_localisation_language->getLanguages();
+
+        $data['header'] = $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('common/column_left');
+        $data['footer'] = $this->load->controller('common/footer');
+
+        $data['spemenu_data'] = $this->model_extension_module_spemenu->getItem($this->request->get['spemenu_id']);
+
+        $menu_data = $this->model_extension_module_spemenu->getTreeItems();
+        $spemenu_tree = $this->model_extension_module_spemenu->getMapTree($menu_data);
+        $data['spemenu_select'] = $this->treeToHtml(
+            $spemenu_tree, 'select', '', $data['spemenu_data']['parent_id']
+        );
+
+        $this->response->setOutput($this->load->view('extension/module/spemenu_form', $data));
+    }
+
     protected function treeToHtml($tree, $tpl = 'list', $tab = '', $parent_id = 0){
         $str = '';
         foreach ($tree as $item) {
