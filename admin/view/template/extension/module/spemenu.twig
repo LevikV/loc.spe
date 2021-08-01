@@ -32,18 +32,12 @@
             </div>
             <div class="panel-body">
 
-                <div class="row">
-                    <div class="col-sm-12 text-right">{{ results }}</div>
+                <div class="list-group list-group-root well">
+                    {{ spemenu }}
                 </div>
+
             </div>
         </div>
     </div>
-
-    <script type="text/javascript"><!--
-        // IE and Edge fix!
-        $('button[form=\'form-category\']').on('click', function(e) {
-            $('#form-category').attr('action', $(this).attr('formaction'));
-        });
-        //--></script>
 </div>
 {{ footer }}

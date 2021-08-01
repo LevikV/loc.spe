@@ -9,6 +9,7 @@ $_['heading_title']    = 'Spe Menu';
 $_['text_module']      = 'Модули';
 $_['text_success']     = 'Настройки успешно изменены!';
 $_['text_edit']        = 'Редактирование';
+$_['text_list']        = 'Spe Menu список пунктов меню';
 
 // Entry
 $_['entry_name']       = 'Название модуля';

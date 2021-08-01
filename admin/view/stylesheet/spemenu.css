@@ -1,0 +1,31 @@
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+.list-group, .list-group.list-group-root > p .list-group {
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.item-p{
+    margin: 0;
+    position: relative;
+}
+.item-p ~ .list-group{
+    padding-left: 20px;
+}
+.item-p > span{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
