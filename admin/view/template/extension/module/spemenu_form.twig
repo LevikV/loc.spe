@@ -15,15 +15,18 @@
             </ul>
         </div>
     </div>
-    <div class="container-fluid">{% if error_warning %}
-            <div class="alert alert-danger alert-dismissible"><i
-                        class="fa fa-exclamation-circle"></i> {{ error_warning }}
+    <div class="container-fluid">
+        {% if error_warning %}
+            <div class="alert alert-danger alert-dismissible">
+                <i class="fa fa-exclamation-circle"></i> {{ error_warning }}
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
             </div>
         {% endif %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+                <h3 class="panel-title">
+                    <i class="fa fa-pencil"></i> {{ text_form }}
+                </h3>
             </div>
             <div class="panel-body">
                 <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-information" class="form-horizontal">
@@ -70,17 +73,6 @@
             </div>
         </div>
     </div>
-    <link href="view/javascript/codemirror/lib/codemirror.css" rel="stylesheet"/>
-    <link href="view/javascript/codemirror/theme/monokai.css" rel="stylesheet"/>
-    <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script>
-    <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script>
-    <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
-    <link href="view/javascript/summernote/summernote.css" rel="stylesheet"/>
-    <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script>
-    <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>
-    <script type="text/javascript"><!--
-        $('#language a:first').tab('show');
-        //--></script>
+
 </div>
 {{ footer }}

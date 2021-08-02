@@ -27,5 +27,14 @@ class ModelExtensionModuleSpemenu extends Model {
         return $this->db->getLastId();
     }
 
+    public function editItem($spemenu_id, $data) {
+        $this->db->query("UPDATE " . DB_PREFIX . "spemenu SET title = '" . $this->db->escape($data['title']) . "', link = '" . $this->db->escape($data['link']) . "', parent_id = " . (int)$data['parent'] . " WHERE id = '" . (int)$spemenu_id . "'");
+    }
+
+    public function getItem($spemenu_id) {
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "spemenu WHERE id = '" . (int)$spemenu_id . "'");
+
+        return $query->row;
+    }
 
 }
