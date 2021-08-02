@@ -195,6 +195,20 @@ class ControllerExtensionModuleSpemenu extends Controller {
         $this->response->setOutput($this->load->view('extension/module/spemenu_form', $data));
     }
 
+    public function delete() {
+
+        $this->load->language('extension/module/spemenu');
+        $this->document->addStyle('view/stylesheet/spemenu.css');
+        $this->document->setTitle($this->language->get('heading_title'));
+        $this->load->model('extension/module/spemenu');
+
+        if (isset($this->request->get['spemenu_id']) && $this->validateDelete()) {
+            $this->model_extension_module_spemenu->deleleteItemMenu($this->request->get['spemenu_id']);
+            $this->getList();
+        }
+
+    }
+
     protected function treeToHtml($tree, $tpl = 'list', $tab = '', $parent_id = 0){
         $str = '';
         foreach ($tree as $item) {
@@ -254,12 +268,23 @@ class ControllerExtensionModuleSpemenu extends Controller {
         }
 
         $link = trim($this->request->post['spemenu']['link']);
-        if (empty($link)) {
-            $this->error['link'] = $this->language->get('error_link');
+        $type_item = trim($this->request->post['spemenu']['type']);
+        if ($type_item === 'type-link') {
+            if (empty($link)) {
+                $this->error['link'] = $this->language->get('error_link');
+            }
         }
 
         if ($this->error && !isset($this->error['warning'])) {
             $this->error['warning'] = $this->language->get('error_warning');
+        }
+
+        return !$this->error;
+    }
+
+    protected function validateDelete() {
+        if (!$this->user->hasPermission('modify', 'extension/module/spemenu')) {
+            $this->error['warning'] = $this->language->get('error_permission');
         }
 
         return !$this->error;
