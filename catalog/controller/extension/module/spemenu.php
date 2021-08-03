@@ -4,11 +4,20 @@ class ControllerExtensionModuleSpemenu extends Controller {
 
 		$this->load->model('extension/module/spemenu');
 
-        $this->document->addStyle('catalog/view/theme/spe/template/extension/module/spebannerproduct/css/spebannerproduct.css');
 
 
+        $menu_data = $this->model_extension_module_spemenu->getTreeItems();
+        $spemenu_tree = $this->model_extension_module_spemenu->getMapTree($menu_data);
 
 
+        foreach ($spemenu_tree as &$item) {
+            if ($item['type_item'] === 'type-cat') {
+                $item['children']  = $this->load->controller('extension/module/tree_cats/getTreeCats');
+            }
+        }
+
+
+        $data['spemenu'] = $spemenu_tree;
 
 
 

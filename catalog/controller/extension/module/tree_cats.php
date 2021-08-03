@@ -61,6 +61,7 @@ class ControllerExtensionModuleTreeCats extends Controller {
         }
         //Получаем дерево категории
         $categories_tree = $this->model_catalog_tree_cats->getMapTree($categories);
+
         return($categories_tree);
     }
 }

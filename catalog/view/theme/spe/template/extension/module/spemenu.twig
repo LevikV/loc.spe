@@ -1,0 +1,39 @@
+<div class="row">
+    <nav>
+        <ul class="top-menu">
+            {% for parent in spemenu %}
+                {% if not parent.children is null %}
+                    {% if parent.type_item == 'type-cat' %}
+                        <li>
+                            <a href="#" class="dropdown">{{ parent.title }}</a>
+                            <ul class="submenu">
+                                {% for category_child in parent.children %}
+                                    <li>
+                                        <h3><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
+                                        {% if not category_child.childs is null %}
+                                            <ul>
+                                                {% set childs_count = 0 %}
+                                                {% for category_child_child in category_child.childs if childs_count < 3 %}
+                                                    <li><a href="{{ category_child_child.href }}">{{ category_child_child.name }}</a></li>
+                                                    {% set childs_count = childs_count + 1 %}
+                                                    {% if childs_count >= 3 %}
+                                                        <li><a href="{{ category_child.href }}">Все категории >></a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ parent.link }}">{{ parent.title }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{{ parent.link }}">{{ parent.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+
+</div>
