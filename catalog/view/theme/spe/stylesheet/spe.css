@@ -238,12 +238,14 @@ body {
 .top-menu > li > a:hover {color: #B03062;}
 
  */
+/*
 .dropdown:after {
     content: "\f107";
     font-family: FontAwesome;
     margin-left: 4px;
     vertical-align: top;
 }
+*/
 
 .top-menu > li > a:before {
     content: "";
@@ -328,8 +330,8 @@ body {
 .submenu li .link-image {padding: 0;}
 .submenu li a:hover {color: #B03062;}
 .submenu h3>a {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    /*font-family: 'Playfair Display', serif;*/
+    font-size: 16px;
     font-weight: 400;
     margin: 10px 0;
     text-transform: uppercase;
