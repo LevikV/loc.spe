@@ -12,7 +12,7 @@
                                         <ul>
                                             <li>
                                                 <a href="{{ category_child.href }}">
-                                                    <img src="https://html5book.ru/wp-content/uploads/2017/01/white-lady.jpg">
+                                                    <img src="{{ category_child.image }}">
                                                 </a>
                                             </li>
                                             <li>
@@ -35,6 +35,22 @@
 
                                     </li>
                                 {% endfor %}
+                                <li class="spe-menu-block-txt">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ category_child.href }}">
+                                                <img src="{{ category_child.image }}">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <h3 class="image-header"><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
+                                        </li>
+                                        <li>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
                     {% else %}
@@ -44,7 +60,7 @@
                                 {% for child in parent.children %}
                                     <li>
                                         <a href="{{ child.link }}">{{ child.title }}</a>
-                                        {#
+
                                         {% if not child.children is null %}
                                             <ul>
                                                 {% for child_child in child.children %}
@@ -52,7 +68,7 @@
                                                 {% endfor %}
                                             </ul>
                                         {% endif %}
-                                        #}
+
                                     </li>
                                 {% endfor %}
                             </ul>
