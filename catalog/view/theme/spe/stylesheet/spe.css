@@ -299,6 +299,22 @@ body {
     min-width: 200px;
     padding: 10px 0;
 }
+.submenu-standart>li>ul {
+    list-style-type: none;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.07);
+    background: rgba(18, 114, 175, 0.9);
+}
+
+
 .dropdown-standart {position: relative;}
 .top-menu > li:hover .submenu,
 .top-menu > li:hover .submenu-standart {
@@ -308,8 +324,10 @@ body {
 }
 
 .submenu-standart>li:hover ul {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+
     transform: translate3d(0,0,0);
 
 }
@@ -330,6 +348,7 @@ body {
 
 .submenu-standart li {
     padding: 0 18px;
+    position: relative;
 }
 
 
