@@ -23,12 +23,28 @@ class ModelExtensionModuleSpemenu extends Model {
     }
 
     public function addItem($data) {
-        $this->db->query("INSERT INTO " . DB_PREFIX . "spemenu SET title = '" . $this->db->escape($data['title']) . "', link = '" . $this->db->escape($data['link']) . "', parent_id = " . (int)$data['parent'] . ", type_item = '" . $this->db->escape($data['type']) . "'");
+        $this->db->query("INSERT INTO " . DB_PREFIX .
+            "spemenu SET title = '" . $this->db->escape($data['title']) .
+            "', link = '" . $this->db->escape($data['link']) .
+            "', parent_id = " . (int)$data['parent'] .
+            ", type_item = '" . $this->db->escape($data['type']) .
+            "', sub_cat_img = '" . $this->db->escape($data['sub_cat_img']) .
+            "', sub_cat_link = '" . $this->db->escape($data['sub_cat_link']) .
+            "', sub_cat_txt = '" . $this->db->escape($data['sub_cat_txt']) ."'"
+        );
         return $this->db->getLastId();
     }
 
     public function editItem($spemenu_id, $data) {
-        $this->db->query("UPDATE " . DB_PREFIX . "spemenu SET title = '" . $this->db->escape($data['title']) . "', link = '" . $this->db->escape($data['link']) . "', parent_id = " . (int)$data['parent'] .", type_item = '" . $this->db->escape($data['type']) . "'" . " WHERE id = '" . (int)$spemenu_id . "'");
+        $this->db->query("UPDATE " . DB_PREFIX .
+            "spemenu SET title = '" . $this->db->escape($data['title']) .
+            "', link = '" . $this->db->escape($data['link']) .
+            "', parent_id = " . (int)$data['parent'] .
+            ", sub_cat_img = '" . $this->db->escape($data['sub_cat_img']) .
+            "', sub_cat_txt = '" . $this->db->escape($data['sub_cat_txt']) .
+            "', sub_cat_link = '" . $this->db->escape($data['sub_cat_link']) .
+            "', type_item = '" . $this->db->escape($data['type']) . "'" .
+            " WHERE id = '" . (int)$spemenu_id . "'");
     }
 
     public function getItem($spemenu_id) {

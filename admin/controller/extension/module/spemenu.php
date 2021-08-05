@@ -186,6 +186,13 @@ class ControllerExtensionModuleSpemenu extends Controller {
 
         $data['spemenu_data'] = $this->model_extension_module_spemenu->getItem($this->request->get['spemenu_id']);
 
+
+        $this->load->model('tool/image');
+
+        if ($data['spemenu_data']['sub_cat_img'] != '') {
+            $data['spemenu_data']['sub_cat_img_thumb'] = $this->model_tool_image->resize($data['spemenu_data']['sub_cat_img'], 100, 100);
+        }
+
         $menu_data = $this->model_extension_module_spemenu->getTreeItems();
         $spemenu_tree = $this->model_extension_module_spemenu->getMapTree($menu_data);
         $data['spemenu_select'] = $this->treeToHtml(

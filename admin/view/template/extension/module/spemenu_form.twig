@@ -58,10 +58,35 @@
 
                     <div id="select-type">
 
-                        <div class="form-group required" id="type-cat" {% if spemenu_data.type_item == 'type-link' %} style="display: none;" {% endif %}>
-                            <label class="col-sm-2 control-label">ThinkDo</label>
-                            <div class="col-sm-10">
-                                {{ text_type_category }}
+                        <div id="type-cat" {% if spemenu_data.type_item == 'type-link' %} style="display: none;" {% endif %}>
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label">{{ entry_cat_image }}</label>
+                                <div class="col-sm-10">
+                                    <a href="" id="thumb-image" data-toggle="image" class="img-thumbnail">
+                                        <img src="{{ spemenu_data.sub_cat_img_thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" />
+                                    </a>
+                                    <input type="hidden" name="spemenu[sub_cat_img]" value="{{ spemenu_data.sub_cat_img }}" id="input-sub-img" />
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="input-sub-txt" class="col-sm-2 control-label">{{ entry_cat_txt }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                           name="spemenu[sub_cat_txt]"
+                                           placeholder="{{ entry_cat_txt }}"
+                                           id="input-sub-txt" class="form-control"
+                                           value="{{ spemenu_data ? spemenu_data.sub_cat_txt }}">
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="input-sub-link" class="col-sm-2 control-label">{{ entry_cat_link }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                           name="spemenu[sub_cat_link]"
+                                           placeholder="{{ entry_cat_link }}"
+                                           id="input-sub-link" class="form-control"
+                                           value="{{ spemenu_data ? spemenu_data.sub_cat_link }}">
+                                </div>
                             </div>
                         </div>
 
@@ -109,7 +134,7 @@
                 $('#select-type div').css('display','none');  //Скрываем все открытые блоки
                 id = $('#input-type option:selected').val();	   //Вытаскиваем value
                 $('#'+id).show();
-                $('#'+id+' div').css('display','inline-block');								  //Показываем блок c таким же id как наш value
+                $('#'+id+' div').css('display','block');								  //Показываем блок c таким же id как наш value
             });
 
         });
