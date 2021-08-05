@@ -206,7 +206,10 @@ body {
     font-weight: 400;
 }
 
-/*Настройка верхнего меню*/
+
+/*              Настройка верхнего меню                */
+
+
 .top-menu {
     background: #222;
     position: relative;
@@ -330,7 +333,9 @@ body {
 }
 
 
-.submenu > li:last-child {border-right: none;}
+.submenu > li:last-child {
+    border-right: none;
+}
 .submenu img {
     display: block;
     width: 100%;
@@ -342,8 +347,12 @@ body {
     color: #ffffff;
     font-size: 13px;
 }
-.submenu li .link-image {padding: 0;}
-.submenu li a:hover {color: #B03062;}
+.submenu li .link-image {
+    padding: 0;
+}
+.submenu li a:hover {
+    opacity: 0.8;
+}
 .submenu h3>a {
     /*font-family: 'Playfair Display', serif;*/
     font-size: 16px;
@@ -354,8 +363,9 @@ body {
 
 .spe-menu-block-txt {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 20px;
+    right: 10%;
+    width: 20%;
 }
 
 /*

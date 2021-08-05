@@ -9,17 +9,8 @@
                             <ul class="submenu">
                                 {% for category_child in parent.children %}
                                     <li>
-                                        <ul>
-                                            <li>
-                                                <a href="{{ category_child.href }}">
-                                                    <img src="{{ category_child.image }}">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <h3 class="image-header"><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
-                                            </li>
-                                        </ul>
 
+                                        <h3><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
                                         {% if not category_child.childs is null %}
                                             <ul>
                                                 {% set childs_count = 0 %}

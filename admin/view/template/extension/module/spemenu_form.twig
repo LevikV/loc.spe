@@ -55,16 +55,21 @@
                         </div>
                     </div>
 
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-link">{{ entry_link }}</label>
 
-                        <div id="select-type">
+                    <div id="select-type">
 
-                            <div id="type-cat" class="col-sm-10" {% if spemenu_data.type_item == 'type-link' %} style="display: none;" {% endif %}>
+                        <div class="form-group required" id="type-cat" {% if spemenu_data.type_item == 'type-link' %} style="display: none;" {% endif %}>
+                            <label class="col-sm-2 control-label">ThinkDo</label>
+                            <div class="col-sm-10">
                                 {{ text_type_category }}
                             </div>
+                        </div>
 
-                            <div id="type-link" class="col-sm-10" {% if spemenu_data.type_item == 'type-cat' %} style="display: none;" {% endif %}>
+
+
+                        <div class="form-group required" id="type-link" {% if spemenu_data.type_item == 'type-cat' %} style="display: none;" {% endif %}>
+                            <label class="col-sm-2 control-label" for="input-link">{{ entry_link }}</label>
+                            <div class="col-sm-10">
                                 <input type="text"
                                        name="spemenu[link]"
                                        placeholder="{{ entry_link }}"
@@ -75,8 +80,9 @@
                                 {% endif %}
                             </div>
                         </div>
-
                     </div>
+
+
 
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-parent">{{ entry_parent }}</label>
@@ -102,7 +108,8 @@
             $("#input-type").change(function(){						 //При смене
                 $('#select-type div').css('display','none');  //Скрываем все открытые блоки
                 id = $('#input-type option:selected').val();	   //Вытаскиваем value
-                $('#'+id).show();								  //Показываем блок c таким же id как наш value
+                $('#'+id).show();
+                $('#'+id+' div').css('display','inline-block');								  //Показываем блок c таким же id как наш value
             });
 
         });
