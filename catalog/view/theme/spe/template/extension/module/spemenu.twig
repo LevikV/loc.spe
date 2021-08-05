@@ -29,15 +29,12 @@
                                 <li class="spe-menu-block-txt">
                                     <ul>
                                         <li>
-                                            <a href="{{ category_child.href }}">
-                                                <img src="{{ category_child.image }}">
+                                            <a href="{{ parent.sub_cat_link }}">
+                                                <img src="../image/{{ parent.sub_cat_img }}">
                                             </a>
                                         </li>
                                         <li>
-                                            <h3 class="image-header"><a href="{{ category_child.href }}">{{ category_child.name }}</a></h3>
-                                        </li>
-                                        <li>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            <h3 class="image-header"><a href="{{ parent.sub_cat_link }}">{{ parent.sub_cat_txt }}</a></h3>
                                         </li>
                                     </ul>
                                 </li>

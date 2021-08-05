@@ -20,9 +20,11 @@ class ControllerExtensionModuleSpemenu extends Controller {
         foreach ($spemenu_tree as &$item) {
             if ($item['type_item'] === 'type-cat') {
                 $item['children']  = $categories;
+                $item['sub_cat_img_thumb'] = $this->model_tool_image->resize($item['sub_cat_img'], 345, 172);
             }
         }
 
+        //print_r($spemenu_tree);
 
         $data['spemenu'] = $spemenu_tree;
 

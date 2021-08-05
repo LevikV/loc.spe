@@ -291,7 +291,7 @@ body {
     top: 87px;
     left: 0;
     width: 100%;
-    padding: 0 30% 0 10%;
+    padding: 0 30% 1% 10%;
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -339,6 +339,7 @@ body {
 .submenu img {
     display: block;
     width: 100%;
+    border-radius: 6px;
 }
 .submenu li a,
 .submenu-standart li a {
@@ -359,6 +360,7 @@ body {
     font-weight: 400;
     margin: 10px 0;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .spe-menu-block-txt {
