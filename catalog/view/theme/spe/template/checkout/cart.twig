@@ -89,11 +89,10 @@
 
                       <td class="text-left">
                         <div class="input-group btn-block" style="max-width: 200px;">
-                          <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
-                          <span class="input-group-btn">
-                          <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                          <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
-                        </span>
+                          <button type="submit" data-toggle="tooltip" class="btn btn-default  my_minus">-</button>
+                          <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="quant" />
+                          <button type="submit" data-toggle="tooltip" class="btn btn-default my_plus">+</button>
+                          <span onclick="cart.remove('{{ product.cart_id }}');">{{ button_remove }}</span>
                         </div>
                       </td>
 
@@ -164,5 +163,25 @@
     </div>
     {{ column_right }}
   </div>
+
+  <script type="text/javascript" >
+    $(document).ready(function() {
+      $('.my_minus').click(function () {
+        var $input = $(this).parent().find('.quant');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change().edit();
+        return false;
+      });
+      $('.my_plus').click(function () {
+        var $input = $(this).parent().find('.quant');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change().edit();
+        return false;
+      });
+    });
+  </script>
+
 </div>
 {{ footer }} 
