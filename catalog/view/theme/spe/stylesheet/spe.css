@@ -432,7 +432,15 @@ body {
 }
 .spe-cart-block table>tbody>tr>td {
     vertical-align: middle;
+    padding-top: 20px;
 }
+.spe-cart-block table thead {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 
 .spe-cart-block__product-block,
 .spe-cart-block__total-block {
@@ -442,8 +450,52 @@ body {
     padding: 10px;
 }
 
+.spe-cart-block__product-block_itemcap {
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 2px;
+}
+.spe-cart-block__product-block_itemcap:hover {
+    text-decoration: none;
+    color: #000000;
+}
 
+.spe-cart-block__product-block .price {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 0;
+    margin: 0;
+}
 
+.spe-cart-block__product-block .my_minus,
+.spe-cart-block__product-block .my_plus,
+.spe-cart-block__product-block .quant {
+    padding: 6px 10px;
+    border: 1px solid #999999;
+}
+.spe-cart-block__product-block .my_minus {
+    border-radius: 4px 0 0 4px;
+}
+.spe-cart-block__product-block .quant {
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+.spe-cart-block__product-block .my_plus {
+    border-radius: 0 4px 4px 0;
+}
+.spe-cart-block__product-block .btn_remove {
+    position: absolute;
+    left: 30%;
+    bottom: -30px;
+    color: #999999;
+}
+.spe-cart-block__product-block .btn_remove:hover {
+    text-decoration: none;
+    color: #ff0000;
+}
 
 /* Настройки подвала*/
 

@@ -35,6 +35,11 @@
       <div class="row spe-cart-block">
         <div class="col-xs-12">
           <h1>{{ heading_cart_block }}</h1>
+          <h2>
+            {% if weight %}
+              &nbsp;({{ weight }})
+            {% endif %}
+          </h2>
         </div>
 
         <div class="col-sm-8">
@@ -44,10 +49,9 @@
                 <table class="table">
                   <thead>
                   <tr>
-                    <td class="text-left">{{ column_model }}</td>
-                    <td class="text-center" colspan="2">{{ column_name }}</td>
-                    <td class="text-left">{{ column_quantity }}</td>
-                    <td class="text-right">{{ column_total }}</td>
+                    <td class="text-left" colspan="2">{{ column_name }}</td>
+                    <td class="text-center">{{ column_quantity }}</td>
+                    <td class="text-center">{{ column_total }}</td>
                   </tr>
                   </thead>
                   <tbody>
@@ -55,23 +59,26 @@
                   {% for product in products %}
                     <tr>
                       <td class="text-center">
-                        {{ product.model }}
-                      </td>
-                      <td class="text-center">
                         {% if product.thumb %}
                           <a href="{{ product.href }}">
                             <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" />
                           </a>
                         {% endif %}
-                        <p>
+
+                        <p class="price">
                           {{ product.price }}
                         </p>
+
                       </td>
-                      <td class="text-left">
-                        <a href="{{ product.href }}">{{ product.name }}</a>
+                      <td class="text-left" style="vertical-align: top">
+                        <a href="{{ product.href }}" class="spe-cart-block__product-block_itemcap">{{ product.name }}</a>
                         {% if not product.stock %}
                           <span class="text-danger">***</span>
                         {% endif %}
+
+                        <br />
+                        <small>{{ column_model }}: {{ product.model }}</small>
+
                         {% if product.option %}
                           {% for option in product.option %}
                             <br />
@@ -87,17 +94,20 @@
                           <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small>
                         {% endif %}</td>
 
-                      <td class="text-left">
+                      <td class="text-center">
                         <div class="input-group btn-block" style="max-width: 200px;">
-                          <button type="submit" data-toggle="tooltip" class="btn btn-default  my_minus">-</button>
+
+                          <button type="submit" data-toggle="tooltip" class="my_minus">-</button>
                           <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="quant" />
-                          <button type="submit" data-toggle="tooltip" class="btn btn-default my_plus">+</button>
-                          <span onclick="cart.remove('{{ product.cart_id }}');">{{ button_remove }}</span>
+                          <button type="submit" data-toggle="tooltip" class="my_plus">+</button>
+                          <a href="" class="btn_remove" onclick="cart.remove('{{ product.cart_id }}');">{{ button_remove }}</a>
                         </div>
                       </td>
 
                       <td class="text-right">
-                        {{ product.total }}
+                        <p class="price">
+                          {{ product.total }}
+                        </p>
                       </td>
                     </tr>
                   {% endfor %}
@@ -128,35 +138,37 @@
         <div class="col-sm-4">
           <div class="spe-cart-block__total-block">
             <table class="table">
+              <thead>
+              <tr>
+                <td class="text-center" colspan="2">
+                  {{ text_cart_total }}
+                </td>
+              </tr>
+              </thead>
               {% for total in totals %}
                 <tr>
-                  <td class="text-right"><strong>{{ total.title }}:</strong></td>
+                  <td class="text-left"><strong>{{ total.title }}:</strong></td>
                   <td class="text-right">{{ total.text }}</td>
                 </tr>
               {% endfor %}
             </table>
+            {% if modules %}
+              <div class="panel-group" id="accordion">
+                {% for module in modules %}
+                  {{ module }}
+                {% endfor %}
+              </div>
+            {% endif %}
             <a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a>
           </div>
         </div>
       </div>
 
 
-      <h2>
-        {% if weight %}
-        &nbsp;({{ weight }})
-        {% endif %}
-      </h2>
 
 
-      {% if modules %}
-      <h2>{{ text_next }}</h2>
-      <p>{{ text_next_choice }}</p>
-      <div class="panel-group" id="accordion">
-        {% for module in modules %}
-          {{ module }}
-        {% endfor %}
-      </div>
-      {% endif %}
+
+
 
 
       {{ content_bottom }}

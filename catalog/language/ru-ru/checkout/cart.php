@@ -29,10 +29,11 @@ $_['text_payment_recurring']                    = 'Платежный профи
 $_['text_trial_description'] 	              	= 'Стоимость: %s; Периодичность: %d %s; Кол-во платежей: %d;  Далее,  ';
 $_['text_payment_description'] 	              	= 'Стоимость: %s; Периодичность: %d %s; Кол-во платежей: %d';
 $_['text_payment_until_canceled_description'] 	= 'Стоимость: %s; Периодичность: %d %s; Кол-во платежей: до отмены';
+$_['text_cart_total'] 	= 'Итого по заказу';
 
 // Column
 $_['column_image']          					= 'Изображение';
-$_['column_name']           					= 'Название товара';
+$_['column_name']           					= 'Наименование товара';
 $_['column_model']          					= 'Код товара';
 $_['column_quantity']       					= 'Количество';
 $_['column_price']          					= 'Цена за единицу товара';
