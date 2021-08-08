@@ -223,8 +223,6 @@ class ControllerCheckoutCart extends Controller {
 				);
 			}
 
-			print_r($totals);
-
 			$data['continue'] = $this->url->link('common/home');
 
 			$data['checkout'] = $this->url->link('checkout/checkout', '', true);

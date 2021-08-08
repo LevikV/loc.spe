@@ -527,7 +527,21 @@ body {
     font-size: 14px;
     color: #ff0000;
 }
-
+/**/
+.spe-cart-block__total-block .btn-spe-checkout {
+    padding: 15px 30px;
+    background-color: #1eb53a;
+    background-image: none;
+    border-color: #1eb53a;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.spe-cart-block__total-block .btn-spe-checkout:hover {
+    background: #000000;
+    border-color: #000000;
+    color: #ffffff;
+}
 
 
 /* Настройки подвала*/
