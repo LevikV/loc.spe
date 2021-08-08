@@ -496,6 +496,39 @@ body {
     text-decoration: none;
     color: #ff0000;
 }
+/**/
+.spe-cart-block__total-block .spe-cart-total-table .sub_total .text-left {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 500;
+}
+.spe-cart-block__total-block .spe-cart-total-table .sub_total .text-right {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.spe-cart-block__total-block .spe-cart-total-table .total .text-left {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 800;
+}
+.spe-cart-block__total-block .spe-cart-total-table .total .text-right {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.spe-cart-block__total-block .spe-cart-total-table .coupon .text-left {
+    font-size: 14px;
+    color: #222222;
+}
+.spe-cart-block__total-block .spe-cart-total-table .coupon .text-right {
+    font-size: 14px;
+    color: #ff0000;
+}
+
+
 
 /* Настройки подвала*/
 
@@ -509,4 +542,13 @@ body {
 .spe-footer-bottom__right-block_image {
     margin-right: 5px;
     border-radius: 4px;
+}
+
+/* Настройка дефолтного модуля УЧИТЫВАТЬ В ЗАКАЗЕ COUPON */
+.spe-coupon-panel .fa {
+    font-size: 1em;
+    float: right;
+}
+.spe-coupon-panel h5 {
+    font-size: 14px;
 }

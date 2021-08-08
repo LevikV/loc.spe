@@ -137,7 +137,7 @@
 
         <div class="col-sm-4">
           <div class="spe-cart-block__total-block">
-            <table class="table">
+            <table class="table spe-cart-total-table">
               <thead>
               <tr>
                 <td class="text-center" colspan="2">
@@ -146,8 +146,8 @@
               </tr>
               </thead>
               {% for total in totals %}
-                <tr>
-                  <td class="text-left"><strong>{{ total.title }}:</strong></td>
+                <tr class="{{ total.code }}">
+                  <td class="text-left">{{ total.title }}:</td>
                   <td class="text-right">{{ total.text }}</td>
                 </tr>
               {% endfor %}
