@@ -233,7 +233,12 @@ body {
     color: #008000;
     opacity: 0.8;
 }
-
+@media (max-width: 1400px) {
+    .header-cart_checkoutlink a,
+    .header-cart_total {
+        font-size: 12px;
+    }
+}
 
 /*              Настройка верхнего меню                */
 
