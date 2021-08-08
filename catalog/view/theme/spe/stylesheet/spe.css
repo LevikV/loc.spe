@@ -206,6 +206,34 @@ body {
     font-weight: 400;
 }
 
+/*всплывающее окно корзины*/
+
+.header-cart_total {
+    float: left;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.header-cart_total>span {
+    text-transform: uppercase;
+}
+.header-cart_checkoutlink {
+    float: right;
+    padding: 5px 10px;
+}
+.header-cart_checkoutlink a {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #008000;
+}
+.header-cart_checkoutlink a:hover {
+    text-decoration: none;
+    color: #008000;
+    opacity: 0.8;
+}
+
 
 /*              Настройка верхнего меню                */
 
@@ -529,6 +557,7 @@ body {
 }
 /**/
 .spe-cart-block__total-block .btn-spe-checkout {
+    margin: 20px 0;
     padding: 15px 30px;
     background-color: #1eb53a;
     background-image: none;
@@ -542,6 +571,13 @@ body {
     border-color: #000000;
     color: #ffffff;
 }
+.spe-cart-block__total-block_subtxt {
+    padding: 20px 10px 5px 10px;
+    font-size: 14px;
+    color: #000000;
+}
+
+
 
 
 /* Настройки подвала*/

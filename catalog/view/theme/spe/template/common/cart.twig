@@ -12,6 +12,13 @@
   <ul class="dropdown-menu pull-right">
     {% if products or vouchers %}
     <li>
+      <p class="header-cart_total">
+        <span>{{ cart_total.title }}</span>: {{ cart_total.val }}
+      </p>
+      <p class="header-cart_checkoutlink">
+        <a href="{{ cart }}"><strong>{{ text_checkout }}</strong></a>
+      </p>
+
       <table class="table table-striped">
         {% for product in products %}
         <tr>
@@ -37,21 +44,6 @@
         </tr>
         {% endfor %}
       </table>
-    </li>
-    <li>
-      <div>
-        <table class="table table-bordered">
-          {% for total in totals %}
-          <tr>
-            <td class="text-right"><strong>{{ total.title }}</strong></td>
-            <td class="text-right">{{ total.text }}</td>
-          </tr>
-          {% endfor %}
-        </table>
-        <p class="text-right">
-          <a href="{{ cart }}"><strong>{{ text_checkout }}</strong></a>
-        </p>
-      </div>
     </li>
     {% else %}
     <li>

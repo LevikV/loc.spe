@@ -133,6 +133,13 @@ class ControllerCommonCart extends Controller {
 				'title' => $total['title'],
 				'text'  => $this->currency->format($total['value'], $this->session->data['currency']),
 			);
+            /*  ++ Spe ++   */
+            //Передаем в шаблон отдельно значение ИТОГО по корзине с учетом скидок и добавок
+			if ($total['code'] == 'sub_total') {
+                $data['cart_total']['val'] = $this->currency->format($total['value'], $this->session->data['currency']);
+                $data['cart_total']['title'] = $total['title'];
+            }
+            /*  -- End Spe --   */
 		}
 
 		$data['cart'] = $this->url->link('checkout/cart');
