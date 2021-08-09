@@ -140,14 +140,18 @@
                       {% endif %}
                     {% endfor %}
                   </div>
+                {% else %}
+
                 {% endif %}
-                <div class="text-center">
-                  <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
-                    ADD
+                <div class="text-center product-thumb__button-block">
+                  <button class="product-thumb__button-block_btn-add-cart" type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
+                    {{ button_cart }}
                   </button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
-                    FAVORITE
+
+                  <button class="product-thumb__button-block_btn-add-wish" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+                    <i onclick="wishlist.add('{{ product.product_id }}');" class="fa fa-heart"></i>
                   </button>
+
                 </div>
               </div>
             </div>
