@@ -556,9 +556,12 @@ footer p {
 .product-thumb .image a {
 	display: block;
 }
+/*
 .product-thumb .image a:hover {
 	opacity: 0.8;
 }
+*/
+
 .product-thumb .image img {
 	margin-left: auto;
 	margin-right: auto;
