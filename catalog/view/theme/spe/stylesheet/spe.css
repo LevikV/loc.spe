@@ -38,6 +38,7 @@ body {
     transition: background .4s;
 }
 
+.spe-subcat-block>ul>li>a:hover,
 .nav-pills>li.active>a,
 .nav-pills>li.active>a:hover,
 .nav-pills>li>a:hover,
@@ -48,7 +49,9 @@ body {
     color: #222 !important;
 }
 
-.nav-pills>li>a:before, .nav-tabs>li>a:before {
+.spe-subcat-block>ul>li>a:before,
+.nav-pills>li>a:before,
+.nav-tabs>li>a:before {
     content: '';
     position: absolute;
     top: 0;
@@ -60,7 +63,11 @@ body {
     -o-transition: width .4s;
     transition: width .4s;
 }
-.nav-pills>li.active>a:before, .nav-pills>li>a:hover:before, .nav-tabs>li.active>a:before, .nav-tabs>li>a:hover:before {
+.spe-subcat-block>ul>li>a:hover:before,
+.nav-pills>li.active>a:before,
+.nav-pills>li>a:hover:before,
+.nav-tabs>li.active>a:before,
+.nav-tabs>li>a:hover:before {
     width: calc(100% + 2px);
 }
 
@@ -106,7 +113,7 @@ body {
 .spe-control-cat-block__pagination p {
     margin: 0 15px 0 0;
     float: left;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: #222;
     padding: 0;
@@ -137,6 +144,18 @@ body {
     color: #222!important;
     background-color: #fff!important;
 }
+/*Настройка вывода подкатегорий*/
+.spe-subcat-block>ul {
+    padding: 0;
+}
+.spe-subcat-block>ul>li {
+    min-width: 100px;
+}
+.spe-subcat-block>ul>li>a {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
 
 /*Настройка блоков миниатюр товаров*/
 .product-thumb {
