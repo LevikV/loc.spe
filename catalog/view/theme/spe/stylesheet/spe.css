@@ -7,13 +7,16 @@ body {
 /*Настройки темы для общих элементов всего сайта*/
 
 /*Настройка вкладок табов*/
-.nav-pills>li, .nav-tabs>li {
+.spe-subcat-block>ul>li,
+.nav-pills>li,
+.nav-tabs>li {
     min-width: 240px;
     display: inline-block;
     overflow: hidden;
     padding-right: 15px;
     padding-bottom: 15px;
 }
+.spe-subcat-block>ul>li>a,
 .nav-pills>li>a,
 .nav-tabs>li>a {
     display: block;
