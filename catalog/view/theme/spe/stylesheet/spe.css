@@ -74,7 +74,66 @@ body {
     color: #ffffff;
     font-weight: 800;
 }
+/*Блок управления видом категории*/
+.spe-control-cat-block {
+    padding: 10px 0;
+}
+/*Пагинация*/
+.spe-control-cat-block__pagination {
+    display: flex;
+    align-items: center;
+}
+/**/
+.input-group-sm>.form-control {
+    font-size: 14px;
+    border-radius: 4px;
+}
+.spe-control-cat-block__sort>.input-group-sm>select {
+    border-radius: 4px !important;
+}
+/**/
+.spe-control-cat-block__limit>.form-group>label>.fa {
+    font-size: 1.3em;
+}
+/**/
+.spe-control-cat-block__view>.btn-group>button>.fa {
+    font-size: 1.3em;
+}
 
+.spe-control-cat-block__pagination p {
+    margin: 0 15px 0 0;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+    padding: 0;
+}
+
+.pagination {
+    display: flex;
+}
+.pagination>li {
+    display: inline-block !important;
+}
+.pagination>li>a, .pagination>li>span {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 00.1em!important;
+    line-height: 1em !important;
+    text-align: center !important;
+    color: rgba(34,34,34,.33) !important;
+    background-color: #eaeaea !important;
+    display: inline-block !important;
+    min-width: 35px !important;
+    padding: 7px 10px !important;
+    border-radius: 4px !important;
+    border: 1px solid #ccc !important;
+    margin: 0 6px;
+}
+.pagination>.active>a, .pagination>.active>span {
+    color: #222!important;
+    background-color: #fff!important;
+}
 
 /*Настройка блоков миниатюр товаров*/
 .product-thumb {

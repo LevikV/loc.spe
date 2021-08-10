@@ -378,10 +378,32 @@ class ControllerProductCategory extends Controller {
 			$pagination->page = $page;
 			$pagination->limit = $limit;
 			$pagination->url = $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&page={page}');
+            $data['pagination'] = $pagination->render();
 
-			$data['pagination'] = $pagination->render();
+            /*  ++ Spe ++   */
+
+            $temp = substr($data['pagination'], stripos($data['pagination'], '<li>'), stripos($data['pagination'], '</li>') - stripos($data['pagination'], '<li>'));
+            if (strpos($temp, '|')) {
+                $spepagination = substr($data['pagination'], 0, stripos($data['pagination'], '<li>')) . substr($data['pagination'], stripos($data['pagination'], '</li>') + 5);
+            } else {
+                $spepagination = $data['pagination'];
+            }
+            if (strpos($spepagination, '|')) {
+                $spepagination = substr($spepagination, 0, strripos($spepagination, '<li>')) . substr($spepagination, strripos($spepagination, '</li>') + 5);
+            }
+
+            $data['spepagination'] = $spepagination;
+
+            /*  -- End Spe --   */
+
 
 			$data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
+
+            /*  ++ Spe ++   */
+
+            $data['speresults'] = sprintf($this->language->get('text_spepagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total);
+
+            /*  -- End Spe --   */
 
 			// http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
 			if ($page == 1) {

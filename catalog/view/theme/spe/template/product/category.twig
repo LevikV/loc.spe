@@ -30,15 +30,18 @@
         </div>
       {% endif %}
 
-      <div class="row">
+      <div class="row spe-control-cat-block">
 
-        <div class="col-sm-3 text-left">{{ pagination }}</div>
-        <div class="col-sm-2 text-right">{{ results }}</div>
+        <div class="col-sm-5 text-left spe-control-cat-block__pagination">
+          <p>
+            {{ speresults }}
+          </p>
+          {{ spepagination }}
+        </div>
 
-
-        <div class="col-md-3 col-xs-6">
+        <div class="col-md-3 col-xs-6 spe-control-cat-block__sort">
           <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+
             <select id="input-sort" class="form-control" onchange="location = this.value;">
               {% for sorts in sorts %}
                 {% if sorts.value == '%s-%s'|format(sort, order) %}
@@ -51,7 +54,7 @@
           </div>
         </div>
 
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-2 col-xs-6 spe-control-cat-block__limit">
           <div class="form-group input-group input-group-sm">
 
             <label class="input-group-addon" for="input-limit"><i class="fa fa-eye"></i></label>
@@ -68,7 +71,7 @@
           </div>
         </div>
 
-        <div class="col-md-2 col-sm-6 hidden-xs">
+        <div class="col-md-2 col-sm-6 hidden-xs text-right spe-control-cat-block__view">
           <div class="btn-group btn-group-sm">
             <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
