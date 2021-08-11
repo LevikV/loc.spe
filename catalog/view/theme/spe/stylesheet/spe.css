@@ -71,6 +71,27 @@ body {
     width: calc(100% + 2px);
 }
 
+/*Настройка Хлебных крошек*/
+.breadcrumb {
+    margin: 0;
+    padding-top: 15px;
+    border: none;
+    background: none;
+}
+.breadcrumb > li:after {
+    border-color: #444444;
+    width: 8px;
+    height: 8px;
+    top: 5px;
+}
+.breadcrumb > li:last-child:after {
+    display: none;
+}
+.breadcrumb a {
+    color: #444444;
+}
+
+
 /*Настройка Категории*/
 .spe-cat-descrip-block {
     border-radius: 0 0 8px 8px;
@@ -154,6 +175,9 @@ body {
 .spe-subcat-block>ul>li>a {
     padding: 5px 10px;
     font-size: 12px;
+}
+.spe-subcat-block > h3 {
+    margin: 5px 0 25px 0;
 }
 
 

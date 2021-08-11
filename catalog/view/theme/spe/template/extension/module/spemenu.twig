@@ -5,7 +5,7 @@
                 {% if not parent.children is null %}
                     {% if parent.type_item == 'type-cat' %}
                         <li>
-                            <a href="#" class="dropdown">{{ parent.title }}</a>
+                            <a href="?route=extension/module/specategoryall" class="dropdown">{{ parent.title }}</a>
                             <ul class="submenu">
                                 {% for category_child in parent.children %}
                                     <li>

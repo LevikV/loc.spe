@@ -43,9 +43,16 @@
       {% endif %}
 
       {% if categories %}
-        <h3>{{ text_refine }}</h3>
+
+
+
         <div class="row">
           <div class="col-xs-12 spe-subcat-block">
+            {% if text_title_cat %}
+              <h3>{{ text_title_cat }}</h3>
+            {% else %}
+              <h3>{{ text_refine }}</h3>
+            {% endif %}
             <ul>
               {% for category in categories %}
                 <li><a href="{{ category.href }}">{{ category.name }}</a></li>
