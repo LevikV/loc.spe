@@ -63,7 +63,7 @@ class ControllerProductCategory extends Controller {
 			//'href' => $this->url->link('common/home')
             /*  ++ Spe ++   */
             //Меняем в хлебных крошках ссылку вместо главной страницы на Все категории
-            'href' => $this->url->link('extension/module/categoryall')
+            'href' => $this->url->link('extension/module/specategoryall')
 
             /*  -- End Spe --   */
 		);
