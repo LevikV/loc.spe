@@ -72,16 +72,33 @@ body {
 }
 
 /*Настройка Хлебных крошек*/
+.spe-cat-breadcramb {
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #ffffff;
+    margin-bottom: 20px;
+    box-shadow: 0 16px 32px rgb(0 15 30 / 8%);
+}
+.spe-cat-breadcramb-fixed {
+    position: fixed;
+    z-index: 100;
+    top: 88px;
+}
 .breadcrumb {
     margin: 0;
-    padding-top: 15px;
+    padding: 15px 12px;
     border: none;
     background: none;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.breadcrumb > li {
+    padding: 0 10px;
 }
 .breadcrumb > li:after {
     border-color: #444444;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 5px;
 }
 .breadcrumb > li:last-child:after {
@@ -99,6 +116,7 @@ body {
 .spe-cat-descrip-block {
     border-radius: 0 0 8px 8px;
     padding: 5px 10px 25px 20px;
+    box-shadow: 0 16px 32px rgb(0 15 30 / 8%);
 }
 .spe-cat-descrip-block p {
     color: #ffffff;

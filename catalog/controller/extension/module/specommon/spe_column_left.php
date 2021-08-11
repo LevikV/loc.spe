@@ -3,10 +3,11 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ControllerExtensionModuleSpecommonSpeColumnLeft extends Controller {
-	public function index($spebreadcrumbs) {
+	public function index($args) {
 	    //++
-	    if ($spebreadcrumbs) {
-	        $data['spebreadcrumbs'] = $spebreadcrumbs;
+        $data['breadcrumbs'] = array();
+	    if ($args) {
+	        $data['breadcrumbs'] = $args['breadcrambs'];
         }
 	    //--
 
