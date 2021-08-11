@@ -87,6 +87,9 @@ body {
 .breadcrumb > li:last-child:after {
     display: none;
 }
+.breadcrumb > li:first-child {
+    padding-left: 0;
+}
 .breadcrumb a {
     color: #444444;
 }
