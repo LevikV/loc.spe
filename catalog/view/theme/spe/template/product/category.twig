@@ -30,6 +30,18 @@
         </div>
       {% endif %}
 
+      {% if breadcrumbs %}
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="breadcrumb">
+              {% for breadcrumb in breadcrumbs %}
+                <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
       {% if categories %}
         <h3>{{ text_refine }}</h3>
         <div class="row">

@@ -60,8 +60,14 @@ class ControllerProductCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			//'href' => $this->url->link('common/home')
+            /*  ++ Spe ++   */
+            //Меняем в хлебных крошках ссылку вместо главной страницы на Все категории
+            'href' => $this->url->link('extension/module/categoryall')
+
+            /*  -- End Spe --   */
 		);
+
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
