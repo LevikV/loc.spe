@@ -340,13 +340,16 @@ class ControllerExtensionModuleSpecategoryall extends Controller {
 
         /*  -- End Spe --   */
 
+        //Задаем флаг, что данные переданы контроллером specategoryall, чтобы во вьюшке отобразить нужный блок со всеми категориями
+        $data['speallcat'] = true;
+
         $data['sort'] = $sort;
         $data['order'] = $order;
         $data['limit'] = $limit;
-
         $data['continue'] = $this->url->link('common/home');
 
-        $data['column_left'] = $this->load->controller('common/column_left');
+        $data['column_left'] = $this->load->controller('extension/module/specommon/spe_column_left', array('speallcat' => $this->language->get('text_title_cat')));
+
         $data['column_right'] = $this->load->controller('common/column_right');
         $data['content_top'] = $this->load->controller('common/content_top');
         $data['content_bottom'] = $this->load->controller('common/content_bottom');

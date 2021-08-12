@@ -434,7 +434,7 @@ class ControllerProductCategory extends Controller {
 
 			//$data['column_left'] = $this->load->controller('common/column_left');
             /*  ++ Spe ++   */
-            $data['column_left'] = $this->load->controller('extension/module/specommon/spe_column_left', array('breadcrambs' => $data['breadcrumbs']));
+            $data['column_left'] = $this->load->controller('extension/module/specommon/spe_column_left', array('breadcrumbs' => $data['breadcrumbs']));
             /*  -- End Spe --   */
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
@@ -484,7 +484,7 @@ class ControllerProductCategory extends Controller {
 
 			//$data['column_left'] = $this->load->controller('common/column_left');
             /*  ++ Spe ++   */
-            $data['column_left'] = $this->load->controller('extension/module/specommon/spe_column_left',array('breadcrambs' => $data['breadcrumbs']));
+            $data['column_left'] = $this->load->controller('extension/module/specommon/spe_column_left',array('breadcrumbs' => $data['breadcrumbs']));
             /*  -- End Spe --   */
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');

@@ -1,15 +1,19 @@
-{% if modules or breadcrumbs %}
+{% if modules or breadcrumbs or speallcat %}
     <aside id="column-left" class="col-sm-3 hidden-xs">
 
-        {% if breadcrumbs %}
+        {% if breadcrumbs or speallcat %}
             <div class="row">
                 <div class="col-xs-12">
                     <div class="spe-cat-breadcramb">
-                        <ul class="breadcrumb">
-                            {% for breadcrumb in breadcrumbs %}
-                                <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-                            {% endfor %}
-                        </ul>
+                        {% if speallcat %}
+                            <h3>{{ speallcat }}</h3>
+                        {% else %}
+                            <ul class="breadcrumb">
+                                {% for breadcrumb in breadcrumbs %}
+                                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>

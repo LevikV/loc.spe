@@ -5,10 +5,17 @@
 class ControllerExtensionModuleSpecommonSpeColumnLeft extends Controller {
 	public function index($args) {
 	    //++
-        $data['breadcrumbs'] = array();
 	    if ($args) {
-	        $data['breadcrumbs'] = $args['breadcrambs'];
+	        if (isset($args['breadcrumbs'])) {
+                $data['breadcrumbs'] = array();
+                $data['breadcrumbs'] = $args['breadcrumbs'];
+            }
+	        if (isset($args['speallcat'])) {
+                $data['speallcat'] = '';
+                $data['speallcat'] = $args['speallcat'];
+            }
         }
+
 	    //--
 
 		$this->load->model('design/layout');
