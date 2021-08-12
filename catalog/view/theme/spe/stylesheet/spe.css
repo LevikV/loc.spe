@@ -218,6 +218,31 @@ body {
     margin: 5px 0 25px 0;
 }
 
+/* Настройка блока поиска на странице Поиска*/
+.spe-search-block {
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+    padding: 5px 10px 25px 20px;
+    box-shadow: 0 16px 32px rgb(0 15 30 / 8%);
+}
+.spe-search-block .btn-primary {
+    padding: 15px 58px;
+    background: none;
+    background-color: #1272af;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color .4s;
+}
+.spe-search-block .btn-primary:hover {
+    background-color: #000000;
+}
+
+
 
 /*Настройка блоков миниатюр товаров*/
 .product-thumb {

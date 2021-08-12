@@ -1,11 +1,12 @@
 <?php
-// *	@source		See SOURCE.txt for source and other copyright.
-// *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ControllerExtensionModuleSpecommonSpeColumnLeft extends Controller {
 	public function index($args) {
 	    //++
 	    if ($args) {
+	        //Устанавливаем флаг для передачи во вьюшку
+	        $data['spe_col_left_contoller'] = 1;
+
 	        if (isset($args['breadcrumbs'])) {
                 $data['breadcrumbs'] = array();
                 $data['breadcrumbs'] = $args['breadcrumbs'];
@@ -13,6 +14,10 @@ class ControllerExtensionModuleSpecommonSpeColumnLeft extends Controller {
 	        if (isset($args['speallcat'])) {
                 $data['speallcat'] = '';
                 $data['speallcat'] = $args['speallcat'];
+            }
+            if (isset($args['spe_search_column_title'])) {
+                $data['spe_search_column_title'] = '';
+                $data['spe_search_column_title'] = $args['spe_search_column_title'];
             }
         }
 
